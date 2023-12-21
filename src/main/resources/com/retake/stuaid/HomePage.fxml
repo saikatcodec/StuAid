@@ -15,7 +15,7 @@
                <children>
                   <Ellipse fill="#407bff" layoutX="61.0" layoutY="7.0" radiusX="80.0" radiusY="44.0" stroke="#407bff" strokeType="INSIDE" />
                   <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" text="Button" />
-               </children>
+                </children>
             </AnchorPane>
             <AnchorPane prefHeight="465.0" prefWidth="700.0">
                <children>
