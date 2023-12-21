@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.SignupController">
+<BorderPane fx:id="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.SignupController">
    <center>
       <AnchorPane prefHeight="500.0" prefWidth="700.0" BorderPane.alignment="CENTER">
          <children>
@@ -21,13 +21,13 @@
             <TextField fx:id="txtEmail" layoutX="218.0" layoutY="198.0" prefHeight="26.0" prefWidth="263.0" promptText="Email" />
             <PasswordField fx:id="txtPass" layoutX="219.0" layoutY="245.0" prefHeight="26.0" prefWidth="263.0" promptText="Password" />
             <PasswordField fx:id="txtConfirmPass" layoutX="218.0" layoutY="294.0" prefHeight="26.0" prefWidth="263.0" promptText="Confirm Password" />
-            <Button layoutX="218.0" layoutY="369.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="263.0" style="-fx-background-color: #407BFF; -fx-text-fill: white; -fx-font-weight: bold;" text="Sign Up" />
+            <Button fx:id="txtSignUp" layoutX="218.0" layoutY="369.0" mnemonicParsing="false" onAction="#gotoLoginPagebyClickingSignUp" prefHeight="35.0" prefWidth="263.0" style="-fx-background-color: #407BFF; -fx-text-fill: white; -fx-font-weight: bold;" text="Sign Up" />
             <Label layoutX="260.0" layoutY="95.0" text="Already a member?">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button layoutX="377.0" layoutY="88.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="62.0" style="-fx-background-color: transparent; -fx-text-fill: #407BFF; -fx-cursor: hand; -fx-underline: true;" text="Log in">
+            <Button fx:id="txtLogIn" layoutX="377.0" layoutY="88.0" mnemonicParsing="false" onAction="#gotoLoginPagebyClickingLogIn" prefHeight="32.0" prefWidth="62.0" style="-fx-background-color: transparent; -fx-text-fill: #407BFF; -fx-cursor: hand; -fx-underline: true;" text="Log in">
                <font>
                   <Font size="14.0" />
                </font>

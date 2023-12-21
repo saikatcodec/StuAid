@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -29,11 +28,10 @@ public class LoginFormController {
     private PasswordField txtPass;
 
     public void createNewAccnt(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("SignupForm.fxml"));
-        Scene scene = new Scene(loader.load());
-        Stage crntStage = (Stage) root.getScene().getWindow();
-        crntStage.setScene(scene);
-        crntStage.setTitle("Sign Up");
-        crntStage.centerOnScreen();
+        SceneChangerUtility.changeScene(root, "SignupForm.fxml", "Sign Up");
+    }
+
+    public void gotoHomePage(ActionEvent actionEvent) throws IOException {
+        SceneChangerUtility.changeScene(root, "HomePage.fxml", "Home Page");
     }
 }
