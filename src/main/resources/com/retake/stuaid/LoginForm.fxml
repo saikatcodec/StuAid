@@ -14,7 +14,7 @@
 
 <BorderPane fx:id="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.LoginFormController">
    <center>
-      <AnchorPane BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="500.0" prefWidth="700.0" BorderPane.alignment="CENTER">
          <children>
             <HBox>
                <children>
