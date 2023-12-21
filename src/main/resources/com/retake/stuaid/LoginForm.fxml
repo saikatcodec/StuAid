@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -13,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.controller.LoginFormController">
+<BorderPane fx:id="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.LoginFormController">
    <center>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
@@ -44,7 +43,7 @@
                         <PasswordField fx:id="txtPass" layoutX="61.0" layoutY="265.0" prefHeight="26.0" prefWidth="263.0" promptText="Password" />
                         <Separator layoutX="86.0" layoutY="138.0" prefWidth="200.0" />
                         <Button layoutX="62.0" layoutY="322.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="261.0" style="-fx-background-color: #407BFF; -fx-text-fill: white; -fx-font-weight: bold;" text="Sign In" />
-                        <Button layoutX="173.0" layoutY="372.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="137.0" style="-fx-background-color: transparent; -fx-text-fill: #407BFF; -fx-cursor: hand; -fx-underline: true;" text="Create an account" />
+                        <Button fx:id="txtCreateAcc" layoutX="173.0" layoutY="372.0" mnemonicParsing="false" onAction="#createNewAccnt" prefHeight="34.0" prefWidth="137.0" style="-fx-background-color: transparent; -fx-text-fill: #407BFF; -fx-cursor: hand; -fx-underline: true;" text="Create an account" />
                         <Label layoutX="91.0" layoutY="381.0" text="New to StuAid?" />
                      </children>
                   </AnchorPane>
