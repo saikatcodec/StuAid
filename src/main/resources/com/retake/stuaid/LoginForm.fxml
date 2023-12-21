@@ -62,7 +62,7 @@
                   <PasswordField fx:id="txtPass" layoutX="61.0" layoutY="265.0" prefHeight="26.0" prefWidth="263.0" promptText="Password" />
                   <Separator layoutX="86.0" layoutY="138.0" prefWidth="200.0" />
                   <Button layoutX="62.0" layoutY="322.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="261.0" style="-fx-background-color: #407BFF; -fx-text-fill: white; -fx-font-weight: bold;" text="Sign In" />
-                  <Button layoutX="173.0" layoutY="372.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="137.0" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-cursor: hand; -fx-underline: true;" text="Create an account" />
+                  <Button layoutX="173.0" layoutY="372.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="137.0" style="-fx-background-color: transparent; -fx-text-fill: #407BFF; -fx-cursor: hand; -fx-underline: true;" text="Create an account" />
                   <Label layoutX="91.0" layoutY="381.0" text="New to StuAid?" />
                </children>
             </AnchorPane>

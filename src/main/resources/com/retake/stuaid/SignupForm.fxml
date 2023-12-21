@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.retake.stuaid.controller.SignupController"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.controller.SignupController">
+   <top>
+      <AnchorPane prefHeight="500.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="299.0" layoutY="23.0" prefHeight="50.0" prefWidth="102.0" text="Sign Up">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <TextField layoutX="218.0" layoutY="124.0" prefHeight="26.0" prefWidth="263.0" promptText="Email" />
+            <PasswordField fx:id="txtPass" layoutX="218.0" layoutY="166.0" prefHeight="26.0" prefWidth="263.0" promptText="Password" />
+            <PasswordField fx:id="txtPass1" layoutX="218.0" layoutY="209.0" prefHeight="26.0" prefWidth="263.0" promptText="Confirm Password" />
+            <Button layoutX="219.0" layoutY="276.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="261.0" style="-fx-background-color: #407BFF; -fx-text-fill: white; -fx-font-weight: bold;" text="Sign Up" />
+            <Label layoutX="260.0" layoutY="63.0" text="Already a member?">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="377.0" layoutY="56.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="62.0" style="-fx-background-color: transparent; -fx-text-fill: #407BFF; -fx-cursor: hand; -fx-underline: true;" text="Log in">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>
