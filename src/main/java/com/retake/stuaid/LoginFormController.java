@@ -18,11 +18,6 @@ import javafx.stage.Stage;
 public class LoginFormController {
     @FXML
     private BorderPane root;
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button txtCreateAcc;
@@ -32,26 +27,6 @@ public class LoginFormController {
 
     @FXML
     private PasswordField txtPass;
-
-//    @FXML
-//    void initialize() {
-//        txtCreateAcc.setOnAction(event -> {
-//            txtCreateAcc.getScene().getWindow().hide();
-//            FXMLLoader loader = new FXMLLoader();
-//            loader.setLocation(getClass().getResource("../SignupForm.fxml"));
-//            try {
-//                loader.load();
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//            Parent root = loader.getRoot();
-//            Stage stage = new Stage();
-//            stage.setTitle("Sign Up");
-//            stage.setScene(new Scene(root));
-//            stage.setResizable(false);
-//            stage.showAndWait();
-//        });
-//    }
 
     public void createNewAccnt(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("SignupForm.fxml"));
