@@ -32,20 +32,20 @@
                         </ImageView>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="txtEmail" layoutX="326.0" prefHeight="500.0" prefWidth="386.0">
+                  <AnchorPane layoutX="326.0" prefHeight="500.0" prefWidth="386.0">
                      <children>
                         <Label layoutX="93.0" layoutY="111.0" prefHeight="26.0" prefWidth="186.0" style="-fx-alignment: center;" text="Sign in to StuAid">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="61.0" layoutY="198.0" prefHeight="26.0" prefWidth="263.0" promptText="Email" />
-                        <PasswordField fx:id="txtPass" layoutX="61.0" layoutY="253.0" prefHeight="26.0" prefWidth="263.0" promptText="Password" />
+                        <TextField fx:id="txtEmail" layoutX="61.0" layoutY="194.0" prefHeight="26.0" prefWidth="263.0" promptText="Email" />
+                        <PasswordField fx:id="txtPass" layoutX="61.0" layoutY="249.0" prefHeight="26.0" prefWidth="263.0" promptText="Password" />
                         <Separator layoutX="86.0" layoutY="138.0" prefWidth="200.0" />
                         <Button fx:id="txtSignIn" layoutX="62.0" layoutY="328.0" mnemonicParsing="false" onAction="#signupButtonOnAction" prefHeight="34.0" prefWidth="261.0" style="-fx-background-color: #407BFF; -fx-text-fill: white; -fx-font-weight: bold;" text="Sign In" />
                         <Button fx:id="txtCreateAcc" layoutX="173.0" layoutY="372.0" mnemonicParsing="false" onAction="#createNewAccnt" prefHeight="34.0" prefWidth="137.0" style="-fx-background-color: transparent; -fx-text-fill: #407BFF; -fx-cursor: hand; -fx-underline: true;" text="Create an account" />
                         <Label layoutX="91.0" layoutY="381.0" text="New to StuAid?" />
-                        <Label fx:id="wrongPassMgs" layoutX="155.0" layoutY="284.0" prefHeight="18.0" prefWidth="168.0" textFill="RED" />
+                        <Label fx:id="wrongPassMgs" layoutX="152.0" layoutY="278.0" prefHeight="18.0" prefWidth="171.0" textFill="RED" />
                      </children>
                   </AnchorPane>
                </children>

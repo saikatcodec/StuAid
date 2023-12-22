@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 public class SignupController {
 
     public Button txtSignUp;
+    public Button txtLogIn;
     @FXML
     private BorderPane root;
 
@@ -56,7 +57,7 @@ public class SignupController {
     }
 
     private boolean checkConfirmPassword(String password, String confirmPassword) {
-        if (password.equals(confirmPassword)) {
+        if (password.equals(confirmPassword) && !password.isBlank()) {
             setBorderColor(txtPass, "transparent");
             setBorderColor(txtConfirmPass, "transparent");
             lblPassMsg.setStyle("visibility: false");
