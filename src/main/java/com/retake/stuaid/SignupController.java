@@ -1,19 +1,15 @@
 package com.retake.stuaid;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
-import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 import com.retake.stuaid.database.DatabaseHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 
 public class SignupController {
 
@@ -42,7 +38,6 @@ public class SignupController {
 
     @FXML
     private Label lblPassMsg;
-    private DatabaseHandler dbUser;
 
     /**
      * Handler of LogIn Button
@@ -67,6 +62,7 @@ public class SignupController {
         String emailText = txtEmail.getText();
         boolean teacherOrNot = chkboxTeacher.isSelected();
         boolean flag = true;
+        DatabaseHandler dbUser = new DatabaseHandler();
 
         if (name.isBlank()) {
             setBorderColor(txtName, "red");
