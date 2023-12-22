@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -27,11 +28,19 @@ public class LoginFormController {
     @FXML
     private PasswordField txtPass;
 
+    @FXML
+    private Label wrongPassMgs;
+
     public void createNewAccnt(ActionEvent actionEvent) throws IOException {
         SceneChangerUtility.changeScene(root, "SignupForm.fxml", "Sign Up");
     }
 
     public void gotoHomePage(ActionEvent actionEvent) throws IOException {
         SceneChangerUtility.changeScene(root, "HomePage.fxml", "Home Page");
+    }
+
+    @FXML
+    private void signupButtonOnAction(ActionEvent e) {
+        wrongPassMgs.setText("Sorry invalid email or password.");
     }
 }
