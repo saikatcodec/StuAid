@@ -50,7 +50,7 @@ public class LoginFormController {
         String password = txtPass.getText();
 
         if (!email.isBlank() && !password.isBlank()) {
-            if (!dbhandaler.checklogin(email, password)) {
+            if (dbhandaler.checklogin(email, password)) {
                 SceneChangerUtility.changeScene(root, "HomePage.fxml", "Home Page");
             }
             else {
