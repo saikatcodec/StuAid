@@ -13,6 +13,7 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Login Page");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

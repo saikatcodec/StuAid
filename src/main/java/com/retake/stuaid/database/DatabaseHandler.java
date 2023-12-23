@@ -11,7 +11,6 @@ public class DatabaseHandler extends Configs {
     public void signupUser(String email,String name,String password,char usertype){
         String insert="INSERT INTO "+"projectuser "+"(email, name, password, usertype) "+
                 "VALUES (?,?,?,?)";
-
         try {
             PreparedStatement preparedStatement=getDbConnection().prepareStatement(insert);
             preparedStatement.setString(1,email);
