@@ -1,8 +1,5 @@
 package com.retake.stuaid.database;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
@@ -22,6 +19,35 @@ public class DatabaseHandler extends Configs {
             preparedStatement.setString(3,password);
             preparedStatement.setString(4, toString().valueOf(usertype));
             preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    // geting all row from data base for given email and passsword
+    public ResultSet getUser(String email,String password) throws SQLException {
+        ResultSet resultSet=null;
+        String query="SELECT * FROM projectuser"+"WHERE email = ?"+" AND password= ?";
+        try {
+            PreparedStatement preparedStatement=getDbConnection().prepareStatement(query);
+            preparedStatement.setString(1,email);
+            preparedStatement.setString(2,password);
+            resultSet=preparedStatement.executeQuery(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return resultSet;
+    }
+    public boolean checklogin(String email,String password) throws SQLException {
+        ResultSet userrow=getUser(email,password);
+        int couter=0;
+        try {
+            while (userrow.next()) {
+                couter++;
+            }
+            if(couter==0) return false;
+            else {
+                return true;
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
