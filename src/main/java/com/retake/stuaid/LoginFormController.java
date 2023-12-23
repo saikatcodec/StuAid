@@ -2,6 +2,7 @@ package com.retake.stuaid;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.BreakIterator;
 import java.util.ResourceBundle;

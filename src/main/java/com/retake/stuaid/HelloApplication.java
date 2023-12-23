@@ -1,5 +1,6 @@
 package com.retake.stuaid;
 
+import com.retake.stuaid.database.DatabaseHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,6 +16,7 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+
     }
 
     public static void main(String[] args) {
