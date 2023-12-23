@@ -2,9 +2,11 @@ package com.retake.stuaid;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.BreakIterator;
 import java.util.ResourceBundle;
 
+import com.retake.stuaid.database.DatabaseHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,11 +44,18 @@ public class LoginFormController {
     }
 
     @FXML
-    private void signupButtonOnAction(ActionEvent e) throws IOException {
+    private void signInButtonOnAction(ActionEvent e) throws IOException, SQLException {
+        DatabaseHandler dbhandaler = new DatabaseHandler();
         String email = txtEmail.getText();
         String password = txtPass.getText();
+
         if (!email.isBlank() && !password.isBlank()) {
-            SceneChangerUtility.changeScene(root, "HomePage.fxml", "Home Page");
+            if (!dbhandaler.checklogin(email, password)) {
+                SceneChangerUtility.changeScene(root, "HomePage.fxml", "Home Page");
+            }
+            else {
+                wrongPassMgs.setText("Sorry invalid email or password.");
+            }
         }
         else {
             wrongPassMgs.setText("Sorry invalid email or password.");

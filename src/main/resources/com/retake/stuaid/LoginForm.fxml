@@ -42,7 +42,7 @@
                         <TextField fx:id="txtEmail" layoutX="61.0" layoutY="194.0" prefHeight="26.0" prefWidth="263.0" promptText="Email" style="-fx-border-color: #B15EFF;" />
                         <PasswordField fx:id="txtPass" layoutX="61.0" layoutY="249.0" prefHeight="26.0" prefWidth="263.0" promptText="Password" style="-fx-border-color: #B15EFF;" />
                         <Separator layoutX="86.0" layoutY="138.0" prefWidth="200.0" />
-                        <Button fx:id="txtSignIn" layoutX="62.0" layoutY="328.0" mnemonicParsing="false" onAction="#signupButtonOnAction" prefHeight="34.0" prefWidth="261.0" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-font-weight: bold;" text="Sign In" />
+                        <Button fx:id="txtSignIn" layoutX="62.0" layoutY="328.0" mnemonicParsing="false" onAction="#signInButtonOnAction" prefHeight="34.0" prefWidth="261.0" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-font-weight: bold;" text="Sign In" />
                         <Button fx:id="txtCreateAcc" layoutX="173.0" layoutY="372.0" mnemonicParsing="false" onAction="#createNewAccnt" prefHeight="34.0" prefWidth="137.0" style="-fx-background-color: transparent; -fx-text-fill: #B15EFF; -fx-cursor: hand; -fx-underline: true;" text="Create an account" />
                         <Label layoutX="91.0" layoutY="381.0" text="New to StuAid?" />
                         <Label fx:id="wrongPassMgs" layoutX="152.0" layoutY="278.0" prefHeight="18.0" prefWidth="171.0" textFill="RED" />

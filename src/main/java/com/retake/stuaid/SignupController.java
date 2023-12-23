@@ -56,6 +56,7 @@ public class SignupController {
      */
     @FXML
     private void gotoLoginPagebyClickingSignUp(ActionEvent actionEvent) throws IOException {
+        // TODO check email before creating account
         String password = txtPass.getText();
         String confirmPassword = txtConfirmPass.getText();
         String name = txtName.getText();
