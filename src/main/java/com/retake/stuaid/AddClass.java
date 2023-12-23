@@ -40,7 +40,7 @@ public class AddClass {
     private TextField txtTimeMin;
 
     @FXML
-    ObservableList<String> AmPmlist = FXCollections.observableArrayList("am", "pm");
+    ObservableList<String> AmPmlist = FXCollections.observableArrayList("AM", "PM");
 
     @FXML
     public void initialize() {
