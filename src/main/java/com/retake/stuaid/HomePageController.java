@@ -30,6 +30,9 @@ public class HomePageController {
     @FXML
     private VBox vUpcmngTaskItems;
 
+    @FXML
+    private VBox vCT;
+
     public void initialize() {
         Node[] nodes = new Node[10];
         for (int i = 0; i < nodes.length; i++) {
@@ -46,6 +49,16 @@ public class HomePageController {
             try {
                 upcommingNodes[i] = FXMLLoader.load(getClass().getResource("ClassItem.fxml"));
                 vUpcmngTaskItems.getChildren().add(upcommingNodes[i]);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        Node[] upcommingCT = new Node[10];
+        for (int i = 0; i < upcommingCT.length; i++) {
+            try {
+                upcommingCT[i] = FXMLLoader.load(getClass().getResource("ClassItem.fxml"));
+                vCT.getChildren().add(upcommingCT[i]);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

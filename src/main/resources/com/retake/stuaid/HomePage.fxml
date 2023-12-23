@@ -25,7 +25,7 @@
          <children>
             <TabPane prefHeight="434.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab text="Home">
+                <Tab text="Class Schedule">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -51,7 +51,7 @@
                                           </Pane>
                                           <ScrollPane layoutX="4.0" layoutY="34.0" prefHeight="141.0" prefWidth="700.0">
                                              <content>
-                                                <VBox fx:id="vUpcmngTaskItems" prefHeight="149.0" prefWidth="686.0" />
+                                                <VBox fx:id="vUpcmngTaskItems" prefHeight="141.0" prefWidth="700.0" />
                                              </content>
                                           </ScrollPane>
                                        </children>
@@ -70,17 +70,66 @@
                 </Tab>
                 <Tab text="Class Test">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane prefHeight="406.0" prefWidth="700.0">
+                                 <content>
+                                    <VBox fx:id="vCT" prefHeight="406.0" prefWidth="690.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="683.0" text="Button" />
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children></AnchorPane>
                   </content>
                 </Tab>
                   <Tab text="Assignment">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane prefHeight="408.0" prefWidth="700.0">
+                                 <content>
+                                    <VBox prefHeight="409.0" prefWidth="702.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="684.0" text="Button" />
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children></AnchorPane>
                     </content>
                   </Tab>
                   <Tab text="References">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane prefHeight="407.0" prefWidth="700.0">
+                                 <content>
+                                    <VBox prefHeight="407.0" prefWidth="700.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="683.0" text="Button" />
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Notice Box">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane prefHeight="405.0" prefWidth="700.0">
+                                 <content>
+                                    <VBox prefHeight="405.0" prefWidth="698.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="684.0" text="Button" />
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children></AnchorPane>
                     </content>
                   </Tab>
               </tabs>
