@@ -101,4 +101,31 @@ public class DatabaseHandler extends Configs {
         preparedStatement.executeUpdate();
     }
 
+    public ResultSet ShowAllStudent() throws SQLException, RuntimeException {
+        ResultSet resultSet = null;
+        String showall = "SELECT email,name,usertype FROM projectuser "+
+                "where usertype != 't' ";
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(showall);
+        resultSet = preparedStatement.executeQuery();
+        return resultSet;
+    }
+
+    public void ChangeCr(String email,char usertype) throws SQLException, RuntimeException {
+        if(usertype=='s'){
+           String upquery="UPDATE projectuser set usertype='c' "+
+           " where email=? ";
+           PreparedStatement preparedStatement=getDbConnection().prepareStatement(upquery);
+           preparedStatement.setString(1,email);
+           preparedStatement.setString(2,toString().valueOf(usertype));
+            preparedStatement.executeUpdate();
+        }
+        else{
+            String upquery="UPDATE projectuser set usertype='s' "+
+                    " where email=? ";
+            PreparedStatement preparedStatement=getDbConnection().prepareStatement(upquery);
+            preparedStatement.setString(1,email);
+            preparedStatement.setString(2,toString().valueOf(usertype));
+            preparedStatement.executeUpdate();
+        }
+    }
 }
