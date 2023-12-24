@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootAddAssignment" accessibleRole="DIALOG" prefHeight="310.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.AddReferenceController">
+   <children>
+      <Button fx:id="btnRefSubmit" layoutX="284.0" layoutY="212.0" mnemonicParsing="false" onAction="#addNewRef" style="-fx-cursor: hand;" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Submit" />
+      <Button fx:id="btnRefCancel" layoutX="207.0" layoutY="212.0" mnemonicParsing="false" onAction="#cancelRefStage" style="-fx-cursor: hand;" styleClass="btnRed" stylesheets="@css/BtnStyle.css" text="Cancel" />
+      <Label layoutX="114.0" layoutY="3.0" prefHeight="30.0" prefWidth="178.0" text="Add New Reference">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="txtRefArea" layoutX="56.0" layoutY="41.0" onDragDetected="#addNewRef" prefHeight="154.0" prefWidth="284.0" promptText="New reference" style="-fx-cursor: text;" />
+   </children>
+</AnchorPane>

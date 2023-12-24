@@ -2,6 +2,10 @@ package com.retake.stuaid;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.SimpleTimeZone;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,6 +13,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class AddCTController {
 
@@ -31,7 +36,7 @@ public class AddCTController {
     private Button btnCTSubmit;
 
     @FXML
-    private ChoiceBox<?> choiceCTAmPm;
+    private ChoiceBox<String> choiceCTAmPm;
 
     @FXML
     private DatePicker dateCT;
@@ -54,14 +59,19 @@ public class AddCTController {
     }
 
     @FXML
-    void initialize() {
+    ObservableList<String> CTAmPmList = FXCollections.observableArrayList("AM", "PM");
 
+    @FXML
+    void initialize() {
+        choiceCTAmPm.setValue("AM");
+        choiceCTAmPm.setItems(CTAmPmList);
     }
 
     public void addNewCt(ActionEvent actionEvent) {
     }
 
-    public void cancelCtStage(ActionEvent actionEvent) {
+    @FXML
+    private void cancelCtStage(ActionEvent actionEvent) {
         Stage stage = (Stage) rootAddCT.getScene().getWindow();
         stage.close();
     }

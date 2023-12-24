@@ -18,15 +18,15 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
             <Ellipse fill="#b15eff" layoutX="18.0" layoutY="-2.0" radiusX="104.0" radiusY="64.0" stroke="#b15eff" strokeType="INSIDE" />
-            <Button layoutX="634.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #B15EFF; -fx-text-fill: white;" text="Profile" />
-            <Button fx:id="btnLogout" layoutX="565.0" layoutY="21.0" mnemonicParsing="false" onAction="#gotoLoginPageByClickingLogout" style="-fx-background-color: #B15EFF; -fx-text-fill: white;" text="Log out" />
+            <Button layoutX="634.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-cursor: hand;" text="Profile" />
+            <Button fx:id="btnLogout" layoutX="565.0" layoutY="21.0" mnemonicParsing="false" onAction="#gotoLoginPageByClickingLogout" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-cursor: hand;" text="Log out" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="566.0" prefWidth="700.0">
          <children>
             <TabPane prefHeight="434.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab text="Class Schedule">
+                <Tab style="-fx-cursor: hand;" text="Class Schedule">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -35,7 +35,7 @@
                                     <Pane prefHeight="34.0" prefWidth="707.0" BorderPane.alignment="CENTER">
                                        <children>
                                           <Label layoutX="19.0" layoutY="11.0" prefHeight="17.0" prefWidth="50.0" text="Today" />
-                                          <Button fx:id="btnToday" layoutX="621.0" layoutY="4.0" mnemonicParsing="false" onAction="#todayPopUp" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add Class" />
+                                          <Button fx:id="btnToday" layoutX="621.0" layoutY="4.0" mnemonicParsing="false" onAction="#todayPopUp" style="-fx-cursor: hand;" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add Class" />
                                           <Line endX="546.800048828125" endY="-3.814697265625E-6" layoutX="141.0" layoutY="34.0" startX="-126.0" startY="-3.814697265625E-6" />
                                        </children>
                                     </Pane>
@@ -75,7 +75,7 @@
                            </children></AnchorPane>
                   </content>
                 </Tab>
-                <Tab text="Class Test">
+                <Tab style="-fx-cursor: hand;" text="Class Test">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -83,7 +83,7 @@
                                  <content>
                                     <VBox fx:id="vCT" alignment="TOP_CENTER" cacheShape="false" prefHeight="406.0" prefWidth="690.0" scaleShape="false" spacing="2.0">
                                        <children>
-                                          <Button fx:id="btnaddCT" alignment="CENTER" mnemonicParsing="false" onAction="#addCTPopUp" prefHeight="26.0" prefWidth="666.0" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add CT" />
+                                          <Button fx:id="btnAddCT" alignment="CENTER" mnemonicParsing="false" onAction="#addCTPopUp" prefHeight="26.0" prefWidth="666.0" style="-fx-cursor: hand;" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add CT" />
                                        </children>
                                        <padding>
                                           <Insets left="5.0" right="5.0" top="5.0" />
@@ -94,7 +94,7 @@
                            </children></AnchorPane>
                   </content>
                 </Tab>
-                  <Tab text="Assignment">
+                  <Tab fx:id="btn" style="-fx-cursor: hand;" text="Assignment">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -102,7 +102,7 @@
                                  <content>
                                     <VBox prefHeight="409.0" prefWidth="702.0">
                                        <children>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="674.0" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add Assignment" />
+                                          <Button fx:id="btnAddAssignment" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addAssignmentPupUp" prefHeight="26.0" prefWidth="674.0" style="-fx-cursor: hand;" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add Assignment" />
                                        </children>
                                        <opaqueInsets>
                                           <Insets />
@@ -116,7 +116,7 @@
                            </children></AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="References">
+                  <Tab style="-fx-cursor: hand;" text="References">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -124,7 +124,7 @@
                                  <content>
                                     <VBox prefHeight="407.0" prefWidth="700.0">
                                        <children>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="673.0" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add References" />
+                                          <Button fx:id="btnAddRef" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addReferencePopUp" prefHeight="26.0" prefWidth="673.0" style="-fx-cursor: hand;" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add References" />
                                        </children>
                                        <padding>
                                           <Insets left="5.0" top="6.0" />
@@ -135,7 +135,7 @@
                            </children></AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="Notice Box">
+                  <Tab style="-fx-cursor: hand;" text="Notice Box">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -143,7 +143,7 @@
                                  <content>
                                     <VBox prefHeight="405.0" prefWidth="698.0">
                                        <children>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="671.0" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add Notice" />
+                                          <Button fx:id="btnAddNotice" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addNoticePopUp" prefHeight="26.0" prefWidth="671.0" style="-fx-cursor: hand;" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add Notice" />
                                        </children>
                                        <padding>
                                           <Insets left="5.0" top="6.0" />
