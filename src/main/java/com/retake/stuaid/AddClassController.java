@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -110,14 +111,6 @@ public class AddClassController {
 
             DatabaseHandler dbUser = new DatabaseHandler();
             dbUser.insertTask(classTitle, date, time, "class");
-            try {
-                FXMLLoader loader = new FXMLLoader(AddClassController.class.getResource("HomePage.fxml"));
-                Parent root = loader.load();
-                HomePageController cnt = loader.getController();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
             closeStage(event);
         }
     }
