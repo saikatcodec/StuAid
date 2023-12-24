@@ -13,8 +13,12 @@ import javafx.scene.layout.BorderPane;
 
 public class SignupController {
 
-    public Button txtSignUp;
-    public Button txtLogIn;
+    @FXML
+    private Button txtSignUp;
+
+    @FXML
+    private Button txtLogIn;
+
     @FXML
     private BorderPane root;
 

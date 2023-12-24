@@ -8,29 +8,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane accessibleRole="DIALOG" prefHeight="310.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.AddClass">
+<AnchorPane fx:id="rootAssignment" accessibleRole="DIALOG" prefHeight="310.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.AddAssignmentController">
    <children>
-      <TextField fx:id="txtCourseTitle" layoutX="73.0" layoutY="76.0" prefHeight="26.0" prefWidth="263.0" promptText="Course Title" />
-      <DatePicker fx:id="txtDateString" layoutX="73.0" layoutY="127.0" prefHeight="26.0" prefWidth="263.0" promptText="Date" />
-      <TextField fx:id="txtTimeHr" layoutX="121.0" layoutY="174.0" prefHeight="26.0" prefWidth="67.0" promptText="hh" />
-      <TextField fx:id="txtTimeMin" layoutX="206.0" layoutY="174.0" prefHeight="26.0" prefWidth="67.0" promptText="mm" />
-      <Label layoutX="74.0" layoutY="174.0" prefHeight="26.0" prefWidth="56.0" text="Time :">
+      <Label layoutX="71.0" layoutY="143.0" prefHeight="26.0" prefWidth="56.0" text="Time :">
          <font>
-            <Font size="14.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="195.0" layoutY="178.0" text=":">
+      <Label layoutX="195.0" layoutY="144.0" text=":">
          <font>
-            <Font size="14.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btnSubmit" layoutX="283.0" layoutY="242.0" mnemonicParsing="false" onAction="#addNewCourse" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Submit" />
-      <Button fx:id="btnCancel" layoutX="207.0" layoutY="242.0" mnemonicParsing="false" onAction="#gotoHomePageByClickingCancel" styleClass="btnRed" stylesheets="@css/BtnStyle.css" text="Cancel" />
-      <Label layoutX="122.0" layoutY="14.0" prefHeight="30.0" prefWidth="168.0" text="Add New Course">
+      <Button fx:id="btnAssignmentSubmit" layoutX="285.0" layoutY="191.0" mnemonicParsing="false" onAction="#addNewAssignment" style="-fx-cursor: hand;" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Submit" />
+      <Button fx:id="btnAssignmentCancel" layoutX="207.0" layoutY="191.0" mnemonicParsing="false" onAction="#cancelAssignmentStage" style="-fx-cursor: hand;" styleClass="btnRed" stylesheets="@css/BtnStyle.css" text="Cancel" />
+      <Label layoutX="104.0" layoutY="5.0" prefHeight="30.0" prefWidth="196.0" text="Add New Assignment">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="choiceAmPm" layoutX="286.0" layoutY="174.0" prefHeight="26.0" prefWidth="51.0" />
+      <ChoiceBox fx:id="choiceAssignmentAmPm" layoutX="283.0" layoutY="144.0" prefHeight="26.0" prefWidth="51.0" style="-fx-cursor: hand;" />
+      <TextField fx:id="txtAssignment" layoutX="70.0" layoutY="53.0" prefHeight="26.0" prefWidth="263.0" promptText="Assignment title" style="-fx-cursor: text;" />
+      <DatePicker fx:id="txtAssignmentDate" layoutX="71.0" layoutY="99.0" prefHeight="26.0" prefWidth="263.0" promptText="Date" style="-fx-cursor: hand;" />
+      <TextField fx:id="txtAssignmentHr" layoutX="123.0" layoutY="144.0" prefHeight="26.0" prefWidth="67.0" promptText="hh" style="-fx-cursor: text;" />
+      <TextField fx:id="txtAssignmentMin" layoutX="204.0" layoutY="144.0" prefHeight="26.0" prefWidth="67.0" promptText="mm" style="-fx-cursor: text;" />
    </children>
 </AnchorPane>

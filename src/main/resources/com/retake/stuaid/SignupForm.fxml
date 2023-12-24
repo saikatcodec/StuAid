@@ -18,10 +18,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <TextField fx:id="txtEmail" layoutX="218.0" layoutY="198.0" prefHeight="26.0" prefWidth="263.0" promptText="Email" style="-fx-border-color: #B15EFF;" />
-            <PasswordField fx:id="txtPass" layoutX="219.0" layoutY="245.0" prefHeight="26.0" prefWidth="263.0" promptText="Password" style="-fx-border-color: #B15EFF;" />
-            <PasswordField fx:id="txtConfirmPass" layoutX="218.0" layoutY="294.0" prefHeight="26.0" prefWidth="263.0" promptText="Confirm Password" style="-fx-border-color: #B15EFF;" />
-            <Button fx:id="txtSignUp" layoutX="218.0" layoutY="369.0" mnemonicParsing="false" onAction="#gotoLoginPagebyClickingSignUp" prefHeight="35.0" prefWidth="263.0" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-font-weight: bold;" text="Sign Up" />
+            <Button fx:id="txtSignUp" layoutX="218.0" layoutY="369.0" mnemonicParsing="false" onAction="#gotoLoginPagebyClickingSignUp" prefHeight="35.0" prefWidth="263.0" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Sign Up" />
             <Label layoutX="260.0" layoutY="95.0" text="Already a member?">
                <font>
                   <Font size="14.0" />
@@ -32,13 +29,16 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <TextField fx:id="txtName" layoutX="218.0" layoutY="151.0" prefHeight="26.0" prefWidth="263.0" promptText="Name" style="-fx-border-color: #B15EFF;" />
-            <CheckBox fx:id="chkboxTeacher" layoutX="218.0" layoutY="332.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="92.0" text="I'm Teacher" />
+            <TextField fx:id="txtName" layoutX="218.0" layoutY="151.0" prefHeight="26.0" prefWidth="263.0" promptText="Name" style="-fx-border-color: #B15EFF; -fx-cursor: text;" />
+            <CheckBox fx:id="chkboxTeacher" layoutX="218.0" layoutY="332.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="92.0" style="-fx-cursor: hand;" text="I'm Teacher" />
             <Label fx:id="lblPassMsg" layoutX="219.0" layoutY="280.0" style="-fx-text-fill: red; visibility: false;" text="Password doesn't match" textFill="RED">
                <font>
                   <Font size="9.0" />
                </font>
             </Label>
+            <TextField fx:id="txtEmail" layoutX="218.0" layoutY="199.0" prefHeight="26.0" prefWidth="263.0" promptText="Email" style="-fx-border-color: #B15EFF; -fx-cursor: text;" />
+            <PasswordField fx:id="txtPass" layoutX="218.0" layoutY="248.0" prefHeight="26.0" prefWidth="263.0" promptText="Password" style="-fx-border-color: #B15EFF; -fx-cursor: text;" />
+            <PasswordField fx:id="txtConfirmPass" layoutX="218.0" layoutY="297.0" prefHeight="26.0" prefWidth="263.0" promptText="Confirm Password" style="-fx-border-color: #B15EFF; -fx-cursor: text;" />
          </children>
       </AnchorPane>
    </center>

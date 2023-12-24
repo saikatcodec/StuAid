@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.BorderPane?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <left>
-      <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="26.0" style="-fx-text-fill: black;" text="1." BorderPane.alignment="CENTER" />
-   </left>
-   <center>
-      <SplitPane dividerPositions="0.6627906976744187" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
-         <items>
-            <Label prefHeight="18.0" prefWidth="462.0" style="-fx-text-fill: black;" text="Software Development project" />
-            <Label prefHeight="18.0" prefWidth="159.0" text="24 Dec, 2023 | 4:50 AM" />
-         </items>
-      </SplitPane>
-   </center>
-   <right>
-      <Button mnemonicParsing="false" prefHeight="14.0" prefWidth="70.0" styleClass="btnRed" stylesheets="@css/BtnStyle.css" text="Cancel" BorderPane.alignment="CENTER" />
-   </right>
-   <padding>
-      <Insets left="10.0" right="10.0" />
-   </padding>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <left>
+        <Label fx:id="lblSerial" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="26.0"
+               style="-fx-text-fill: black;" text="1." BorderPane.alignment="CENTER"/>
+    </left>
+    <center>
+        <SplitPane dividerPositions="0.6627906976744187" style="-fx-background-color: transparent;"
+                   BorderPane.alignment="CENTER">
+            <items>
+                <Label fx:id="lblCourseTitle" prefHeight="18.0" prefWidth="462.0" style="-fx-text-fill: black;"
+                       text="Software Development project"/>
+                <Label fx:id="lblTimeDate" prefHeight="18.0" prefWidth="159.0" text="24 Dec, 2023 | 4:50 AM"/>
+            </items>
+        </SplitPane>
+    </center>
+    <right>
+        <Button fx:id="btnClassCancel" mnemonicParsing="false" prefHeight="14.0" prefWidth="70.0"
+                style="-fx-cursor: hand;" styleClass="btnRed" stylesheets="@css/BtnStyle.css" text="Cancel"
+                BorderPane.alignment="CENTER"/>
+    </right>
+    <padding>
+        <Insets left="10.0" right="10.0"/>
+    </padding>
 </BorderPane>
