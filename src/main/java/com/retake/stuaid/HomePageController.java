@@ -13,6 +13,9 @@ import java.net.URL;
 public class HomePageController {
 
     @FXML
+    private Button btnToday;
+
+    @FXML
     private VBox root;
 
     @FXML
@@ -68,8 +71,11 @@ public class HomePageController {
 
     @FXML
     private void gotoLoginPageByClickingLogout(ActionEvent actionEvent) throws IOException {
-        SceneChangerUtility.changeScene(root, "LoginForm.fxml", "Log In");
+        Utility.changeScene(root, "LoginForm.fxml", "Log In");
     }
 
-
+    @FXML
+    private void todayPopUp(ActionEvent actionEvent) throws IOException {
+        Utility.popUp("AddClass.fxml", "Add Class");
+    }
 }

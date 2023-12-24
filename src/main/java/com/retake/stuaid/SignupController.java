@@ -46,7 +46,7 @@ public class SignupController {
      */
     @FXML
     private void gotoLoginPagebyClickingLogIn(ActionEvent actionEvent) throws IOException {
-        SceneChangerUtility.changeScene(root, "LoginForm.fxml", "Log In");
+        Utility.changeScene(root, "LoginForm.fxml", "Log In");
     }
 
     /**
@@ -81,7 +81,7 @@ public class SignupController {
 
         if (checkConfirmPassword(password, confirmPassword) && flag) {
             dbUser.signupUser(emailText, name, password, ((teacherOrNot) ? 't': 's'));
-            SceneChangerUtility.changeScene(root, "LoginForm.fxml", "Log In");
+            Utility.changeScene(root, "LoginForm.fxml", "Log In");
         }
     }
 

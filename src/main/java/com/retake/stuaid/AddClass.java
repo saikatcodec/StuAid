@@ -44,12 +44,12 @@ public class AddClass {
 
     @FXML
     public void initialize() {
-        choiceAmPm.setValue("am");
+        choiceAmPm.setValue("AM");
         choiceAmPm.setItems(AmPmlist);
     }
 
     @FXML
-    void addNewCourse(ActionEvent event) {
+    private void addNewCourse(ActionEvent event) {
 
     }
 

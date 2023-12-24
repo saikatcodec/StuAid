@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane accessibleRole="DIALOG" prefHeight="310.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.AddClass">
+<AnchorPane accessibleRole="DIALOG" prefHeight="310.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.AddClass">
    <children>
       <TextField fx:id="txtCourseTitle" layoutX="73.0" layoutY="76.0" prefHeight="26.0" prefWidth="263.0" promptText="Course Title" />
       <DatePicker fx:id="txtDateString" layoutX="73.0" layoutY="127.0" prefHeight="26.0" prefWidth="263.0" promptText="Date" />
@@ -24,8 +24,8 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btnSubmit" layoutX="283.0" layoutY="242.0" mnemonicParsing="false" onAction="#addNewCourse" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Submit" />
-      <Button fx:id="btnCancel" layoutX="207.0" layoutY="242.0" mnemonicParsing="false" onAction="#gotoHomePageByClickingCancel" styleClass="btnRed" stylesheets="@css/BtnStyle.css" text="Cancel" />
+      <Button fx:id="btnSubmit" layoutX="285.0" layoutY="229.0" mnemonicParsing="false" onAction="#addNewCourse" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Submit" />
+      <Button fx:id="btnCancel" layoutX="207.0" layoutY="229.0" mnemonicParsing="false" onAction="#gotoHomePageByClickingCancel" styleClass="btnRed" stylesheets="@css/BtnStyle.css" text="Cancel" />
       <Label layoutX="122.0" layoutY="14.0" prefHeight="30.0" prefWidth="168.0" text="Add New Course">
          <font>
             <Font size="20.0" />
