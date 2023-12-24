@@ -78,7 +78,7 @@ public class DatabaseHandler extends Configs {
 
         return resultSet;
     }
-
+    // get task using type and date
     public ResultSet getAllTasks(Date cdate,String task_type) throws SQLException, RuntimeException {
         ResultSet resultSet = null;
         String checkquery= "SELECT course_title,cdate,ctime FROM Tasks"+
