@@ -63,5 +63,7 @@ public class AddCT {
     }
 
     public void cancelCtStage(ActionEvent actionEvent) {
+        Stage stage = (Stage) rootAddCT.getScene().getWindow();
+        stage.close();
     }
 }

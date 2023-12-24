@@ -79,6 +79,7 @@ public class HomePageController {
         Utility.popUp("AddClass.fxml", "Add Class");
     }
 
-    public void addCTPopUp(ActionEvent actionEvent) {
+    public void addCTPopUp(ActionEvent actionEvent) throws IOException {
+        Utility.popUp("AddCT.fxml", "Add Class Test");
     }
 }
