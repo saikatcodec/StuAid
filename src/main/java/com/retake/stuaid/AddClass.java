@@ -16,6 +16,9 @@ public class AddClass {
     private ChoiceBox<String> choiceAmPm;
 
     @FXML
+    private ChoiceBox<String> choiceTdayTmrow;
+
+    @FXML
     private ResourceBundle resources;
 
     @FXML
@@ -43,9 +46,14 @@ public class AddClass {
     ObservableList<String> AmPmlist = FXCollections.observableArrayList("AM", "PM");
 
     @FXML
+    ObservableList<String> dayList = FXCollections.observableArrayList("Today", "Tomorrow");
+
+    @FXML
     public void initialize() {
         choiceAmPm.setValue("AM");
         choiceAmPm.setItems(AmPmlist);
+        choiceTdayTmrow.setValue("Today");
+        choiceTdayTmrow.setItems(dayList);
     }
 
     @FXML

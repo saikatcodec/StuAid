@@ -9,26 +9,32 @@
 
 <AnchorPane accessibleRole="DIALOG" prefHeight="310.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.AddClass">
    <children>
-      <TextField fx:id="txtCourseTitle" layoutX="74.0" layoutY="106.0" prefHeight="26.0" prefWidth="263.0" promptText="Course Title" />
-      <TextField fx:id="txtTimeHr" layoutX="121.0" layoutY="156.0" prefHeight="26.0" prefWidth="67.0" promptText="hh" />
-      <TextField fx:id="txtTimeMin" layoutX="206.0" layoutY="156.0" prefHeight="26.0" prefWidth="67.0" promptText="mm" />
-      <Label layoutX="74.0" layoutY="156.0" prefHeight="26.0" prefWidth="56.0" text="Time :">
+      <TextField fx:id="txtCourseTitle" layoutX="74.0" layoutY="76.0" prefHeight="26.0" prefWidth="263.0" promptText="Course Title" />
+      <TextField fx:id="txtTimeHr" layoutX="121.0" layoutY="155.0" prefHeight="26.0" prefWidth="67.0" promptText="hh" />
+      <TextField fx:id="txtTimeMin" layoutX="206.0" layoutY="155.0" prefHeight="26.0" prefWidth="67.0" promptText="mm" />
+      <Label layoutX="74.0" layoutY="155.0" prefHeight="26.0" prefWidth="56.0" text="Time :">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="195.0" layoutY="159.0" text=":">
+      <Label layoutX="195.0" layoutY="158.0" text=":">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btnSubmit" layoutX="285.0" layoutY="221.0" mnemonicParsing="false" onAction="#addNewCourse" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Submit" />
-      <Button fx:id="btnCancel" layoutX="205.0" layoutY="221.0" mnemonicParsing="false" onAction="#gotoHomePageByClickingCancel" styleClass="btnRed" stylesheets="@css/BtnStyle.css" text="Cancel" />
-      <Label layoutX="136.0" layoutY="38.0" prefHeight="30.0" prefWidth="138.0" text="Add New Class">
+      <Button fx:id="btnSubmit" layoutX="285.0" layoutY="192.0" mnemonicParsing="false" onAction="#addNewCourse" style="-fx-cursor: hand;" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Submit" />
+      <Button fx:id="btnCancel" layoutX="205.0" layoutY="192.0" mnemonicParsing="false" onAction="#gotoHomePageByClickingCancel" style="-fx-cursor: hand;" styleClass="btnRed" stylesheets="@css/BtnStyle.css" text="Cancel" />
+      <Label layoutX="136.0" layoutY="22.0" prefHeight="30.0" prefWidth="138.0" text="Add New Class">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="choiceAmPm" layoutX="286.0" layoutY="156.0" prefHeight="26.0" prefWidth="51.0" />
+      <ChoiceBox fx:id="choiceAmPm" layoutX="286.0" layoutY="155.0" prefHeight="26.0" prefWidth="51.0" />
+      <Label layoutX="74.0" layoutY="117.0" prefHeight="26.0" prefWidth="56.0" text="Date :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="choiceTdayTmrow" layoutX="151.0" layoutY="117.0" prefHeight="26.0" prefWidth="185.0" />
    </children>
 </AnchorPane>
