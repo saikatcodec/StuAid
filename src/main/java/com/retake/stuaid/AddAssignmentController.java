@@ -1,8 +1,13 @@
 package com.retake.stuaid;
 
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
+import com.retake.stuaid.database.DatabaseHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -45,14 +50,56 @@ public class AddAssignmentController {
 
     @FXML
     private TextField txtAssignmentMin;
-
+    
     @FXML
-    void addNewAssignment(ActionEvent event) {
+    private final String color = "#B80000";
+    
+    @FXML
+    void cancelAssignmentStage(ActionEvent event) {
+        Stage stage = (Stage) rootAssignment.getScene().getWindow();
+        stage.close();
+    }
+    
+    @FXML
+    private void addNewAssignment(ActionEvent event) throws ParseException {
+        String AssignmentTitle = txtAssignment.getText();
+        String date = String.valueOf(txtAssignmentDate.getValue());
+//        LocalDate date = LocalDate.now();
+        String hour = txtAssignmentHr.getText();
+        String minute = txtAssignmentMin.getText();
+        String amOrPm = (String) choiceAssignmentAmPm.getValue();
+        boolean flag = true;
 
+        if (AssignmentTitle.isBlank()) {
+            Utility.setBorderColor(txtAssignment, color);
+            flag = false;
+        } else {
+            Utility.setBorderColor(txtAssignment, "transparent");
+        }
+
+        if (hour.isBlank() || minute.isBlank()) {
+            Utility.setBorderColor(txtAssignmentHr, color);
+            Utility.setBorderColor(txtAssignmentMin, color);
+            flag = false;
+        } else {
+            Utility.setBorderColor(txtAssignmentHr, "transparent");
+            Utility.setBorderColor(txtAssignmentMin, "transparent");
+        }
+
+        if (flag) {
+            String timeString = hour + ":" + minute + " " + amOrPm;
+            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aa");
+            Date timeParse = timeFormat.parse(timeString);
+            String time = timeFormat.format(timeParse);
+
+            DatabaseHandler dbUser = new DatabaseHandler();
+            dbUser.insertTask(AssignmentTitle, LocalDate.parse(date), time, "assignment");
+            closeStage(event);
+        }
     }
 
     @FXML
-    void cancelAssignmentStage(ActionEvent event) {
+    private void closeStage(ActionEvent actionEvent) {
         Stage stage = (Stage) rootAssignment.getScene().getWindow();
         stage.close();
     }

@@ -84,19 +84,19 @@ public class AddClassController {
         boolean flag = true;
 
         if (classTitle.isBlank()) {
-            setBorderColor(txtCourseTitle, color);
+            Utility.setBorderColor(txtCourseTitle, color);
             flag = false;
         } else {
-            setBorderColor(txtCourseTitle, "transparent");
+           Utility.setBorderColor(txtCourseTitle, "transparent");
         }
 
         if (hour.isBlank() || minute.isBlank()) {
-            setBorderColor(txtTimeHr, color);
-            setBorderColor(txtTimeMin, color);
+            Utility.setBorderColor(txtTimeHr, color);
+            Utility.setBorderColor(txtTimeMin, color);
             flag = false;
         } else {
-            setBorderColor(txtTimeHr, "transparent");
-            setBorderColor(txtTimeMin, "transparent");
+            Utility.setBorderColor(txtTimeHr, "transparent");
+            Utility.setBorderColor(txtTimeMin, "transparent");
         }
 
         if (flag) {
@@ -123,15 +123,5 @@ public class AddClassController {
     public void closeStage(ActionEvent actionEvent) {
         Stage stage = (Stage) root.getScene().getWindow();
         stage.close();
-    }
-
-    /**
-     * Set border of Node
-     *
-     * @param node  Node of textField
-     * @param color border color
-     */
-    private void setBorderColor(TextField node, String color) {
-        node.setStyle("-fx-border-color: " + color);
     }
 }

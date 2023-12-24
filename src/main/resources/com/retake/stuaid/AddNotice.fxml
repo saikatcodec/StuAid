@@ -15,6 +15,6 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextArea fx:id="txtRefArea" layoutX="56.0" layoutY="41.0" onDragDetected="#addNewRef" prefHeight="154.0" prefWidth="284.0" promptText="New Notice" style="-fx-cursor: text;" />
+      <TextArea fx:id="txtRefArea" layoutX="56.0" layoutY="41.0" onDragDetected="#addNewNotice" prefHeight="154.0" prefWidth="284.0" promptText="New Notice(maximum 255 charecter)" style="-fx-cursor: text;" />
    </children>
 </AnchorPane>

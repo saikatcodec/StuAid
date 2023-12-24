@@ -45,6 +45,8 @@ public class HomePageController {
 
         LocalDate tomorrow = today.plusDays(1);
         Utility.addClassItem(tomorrow, "ClassItem.fxml", vUpcmngTaskItems);
+
+
     }
 
     public void reload() {
@@ -106,6 +108,11 @@ public class HomePageController {
     @FXML
     private void addNoticePopUp(ActionEvent actionEvent) throws IOException {
         Utility.popUp("AddNotice.fxml", "Add Notice");
+    }
+
+    @FXML
+    private void profileInfoPopUp(ActionEvent actionEvent) throws IOException {
+        Utility.popUp("ProfileInfo.fxml", "Profile Information");
     }
 
 }

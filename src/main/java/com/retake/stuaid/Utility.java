@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -33,8 +35,6 @@ public class Utility {
         Scene scene = new Scene(loader.load());
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.setWidth(410);
-        stage.setHeight(310);
         stage.centerOnScreen();
         stage.setTitle(title);
         stage.setResizable(false);
@@ -64,5 +64,13 @@ public class Utility {
             vBox.getChildren().add(nodes[i]);
             controller.setTask(i + 1, model.get(i));
         }
+    }
+
+    public static void setBorderColor(TextField node, String color) {
+        node.setStyle("-fx-border-color: " + color);
+    }
+
+    public static void setBorderColorArea(TextArea txtRefArea, String color) {
+        txtRefArea.setStyle("-fx-border-color: " + color);
     }
 }
