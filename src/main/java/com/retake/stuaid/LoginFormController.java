@@ -1,24 +1,18 @@
 package com.retake.stuaid;
 
-import java.io.IOException;
-import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.BreakIterator;
-import java.util.ResourceBundle;
-
 import com.retake.stuaid.database.DatabaseHandler;
+import com.retake.stuaid.session.LoginSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class LoginFormController {
     @FXML
@@ -46,20 +40,34 @@ public class LoginFormController {
 
     @FXML
     private void signInButtonOnAction(ActionEvent e) throws IOException, SQLException {
-        DatabaseHandler dbhandaler = new DatabaseHandler();
         String email = txtEmail.getText();
         String password = txtPass.getText();
 
         if (!email.isBlank() && !password.isBlank()) {
-            if (dbhandaler.checklogin(email, password)) {
+            if (checkLogin(email, password)) {
                 Utility.changeScene(root, "HomePage.fxml", "Home Page");
-            }
-            else {
+            } else {
                 wrongPassMgs.setText("Sorry invalid email or password.");
             }
-        }
-        else {
+        } else {
             wrongPassMgs.setText("Sorry invalid email or password.");
         }
     }
+
+    private boolean checkLogin(String email, String password) throws SQLException {
+        DatabaseHandler dbUser = new DatabaseHandler();
+        ResultSet userRow = dbUser.getUser(email, password);
+
+        while (userRow.next()) {
+            String emailSql = userRow.getString("email");
+            String name = userRow.getString("name");
+            char userType = userRow.getString("usertype").charAt(0);
+            Utility.session = LoginSession.getLoginSession(emailSql, name, userType);
+            System.out.println(Utility.session);
+            return true;
+        }
+
+        return false;
+    }
+
 }

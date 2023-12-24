@@ -1,5 +1,6 @@
 package com.retake.stuaid;
 
+import com.retake.stuaid.session.LoginSession;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +15,6 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class HomePageController {
-
     @FXML
     private Button btnToday;
 
@@ -80,6 +80,7 @@ public class HomePageController {
 
     @FXML
     private void gotoLoginPageByClickingLogout(ActionEvent actionEvent) throws IOException {
+        Utility.session.cleanLoginSession();
         Utility.changeScene(root, "LoginForm.fxml", "Log In");
     }
 
