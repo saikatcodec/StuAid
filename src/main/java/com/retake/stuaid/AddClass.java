@@ -1,5 +1,6 @@
 package com.retake.stuaid;
 
+import com.retake.stuaid.database.DatabaseHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -96,7 +97,11 @@ public class AddClass {
 
             String timeString = hour + ":" + minute + " " + amOrPm;
             SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aa");
-            Date time = timeFormat.parse(timeString);
+            Date timeParse = timeFormat.parse(timeString);
+            String time = timeFormat.format(timeParse);
+
+            DatabaseHandler dbUser = new DatabaseHandler();
+            dbUser.insertTask(classTitle, date, time, "class");
         }
     }
 
