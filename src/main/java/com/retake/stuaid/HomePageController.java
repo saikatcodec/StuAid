@@ -84,8 +84,6 @@ public class HomePageController {
     @FXML
     private void addAssignmentPupUp(ActionEvent actionEvent) throws IOException {
         Utility.popUp("AddAssignment.fxml", "Add Assignment");
-    @FXML
-    private void addCTPopUp(ActionEvent actionEvent) {
     }
 
     @FXML
