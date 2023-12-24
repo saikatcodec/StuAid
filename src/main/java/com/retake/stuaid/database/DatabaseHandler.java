@@ -2,6 +2,8 @@ package com.retake.stuaid.database;
 
 import java.sql.*;
 
+import static java.text.DateFormat.DEFAULT;
+
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
 
@@ -47,5 +49,45 @@ public class DatabaseHandler extends Configs {
         }
         if(couter==0) return false;
         else return true;
+    }
+    public void insertTask(String course_title,String cdate,String ctime,String task_type){
+        String insert = "INSERT INTO " + "Tasks " +
+                "VALUES (DEFAULT,?,?,?,?)";
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(insert);
+          //  preparedStatement.setInt(1, DEFAULT);
+            preparedStatement.setString(1, course_title);
+            preparedStatement.setString(2, cdate);
+            preparedStatement.setString(3, ctime);
+            preparedStatement.setString(4, task_type);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    // Get the class which will be held today
+    public ResultSet getTodayTasksClass(String cdate) throws SQLException, RuntimeException {
+        ResultSet resultSet = null;
+       String checkquery= "SELECT course_title,cdate,ctime FROM Tasks"+
+        "WHERE task_type='class' and cdate = ? "+
+        "ORDER BY ctime ASC ";
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkquery);
+        preparedStatement.setString(1,cdate);
+        resultSet =preparedStatement.executeQuery();
+
+        return resultSet;
+    }
+
+    public ResultSet getAllTasks(String cdate,String task_type) throws SQLException, RuntimeException {
+        ResultSet resultSet = null;
+        String checkquery= "SELECT course_title,cdate,ctime FROM Tasks"+
+                "WHERE task_type=? and cdate >= ? "+
+                "ORDER BY ctime ASC ";
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkquery);
+        preparedStatement.setString(1,cdate);
+        resultSet =preparedStatement.executeQuery();
+
+        return resultSet;
     }
 }
