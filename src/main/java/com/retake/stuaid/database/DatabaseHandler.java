@@ -69,7 +69,7 @@ public class DatabaseHandler extends Configs {
     }
 
     // Get the class which will be held today
-    public ResultSet getTodayTasksClass(Date cdate) throws SQLException, RuntimeException {
+    public ResultSet getTodayTasksClass(LocalDate cdate) throws SQLException, RuntimeException {
         ResultSet resultSet = null;
         String checkquery = "SELECT course_title,cdate,ctime FROM Tasks" +
                 "WHERE task_type='class' and cdate = ? " +

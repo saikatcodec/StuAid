@@ -1,5 +1,6 @@
 package com.retake.stuaid;
 
+import com.retake.stuaid.database.DatabaseHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,9 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class HomePageController {
 
@@ -36,7 +40,10 @@ public class HomePageController {
     @FXML
     private VBox vCT;
 
-    public void initialize() {
+    public void initialize() throws SQLException {
+//        LocalDate today = LocalDate.now();
+//        DatabaseHandler dbUser = new DatabaseHandler();
+//        ResultSet result = dbUser.getTodayTasksClass(today);
         Node[] nodes = new Node[10];
         for (int i = 0; i < nodes.length; i++) {
             try {

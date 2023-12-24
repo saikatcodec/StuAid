@@ -10,18 +10,15 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.ResourceBundle;
-import javafx.scene.control.*;
+
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class AddClass {
-
+public class AddClassController {
     @FXML
     private AnchorPane root;
 
@@ -30,12 +27,6 @@ public class AddClass {
 
     @FXML
     private ChoiceBox<String> choiceTdayTmrow;
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button btnCancel;
@@ -62,6 +53,9 @@ public class AddClass {
     @FXML
     ObservableList<String> dayList = FXCollections.observableArrayList("Today", "Tomorrow");
 
+    /**
+     * Before load the scene, init function is closed
+     */
     @FXML
     public void initialize() {
         choiceAmPm.setValue("AM");
@@ -70,6 +64,11 @@ public class AddClass {
         choiceTdayTmrow.setItems(dayList);
     }
 
+    /**
+     * Handler of submit button
+     * @param event event of button
+     * @throws ParseException throws an exception
+     */
     @FXML
     private void addNewCourse(ActionEvent event) throws ParseException {
         String classTitle = txtCourseTitle.getText();
@@ -112,6 +111,10 @@ public class AddClass {
         }
     }
 
+    /**
+     * Handler of cancel button
+     * @param actionEvent event of button
+     */
     public void closeStage(ActionEvent actionEvent) {
         Stage stage = (Stage) root.getScene().getWindow();
         stage.close();

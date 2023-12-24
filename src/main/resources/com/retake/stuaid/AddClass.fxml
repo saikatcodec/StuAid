@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" accessibleRole="DIALOG" prefHeight="310.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.AddClass">
+<AnchorPane fx:id="root" accessibleRole="DIALOG" prefHeight="310.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.AddClassController">
    <children>
       <TextField fx:id="txtCourseTitle" layoutX="74.0" layoutY="61.0" prefHeight="26.0" prefWidth="263.0" promptText="Course Title" style="-fx-cursor: text;" />
       <TextField fx:id="txtTimeHr" layoutX="121.0" layoutY="151.0" prefHeight="26.0" prefWidth="67.0" promptText="hh" style="-fx-cursor: text;" />
