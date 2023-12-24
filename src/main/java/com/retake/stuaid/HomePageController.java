@@ -77,6 +77,25 @@ public class HomePageController {
     }
 
     @FXML
+    private void addCTPopUp(ActionEvent actionEvent) throws IOException {
+        Utility.popUp("AddCT.fxml", "Add Class Test");
+    }
+
+    @FXML
+    private void addAssignmentPupUp(ActionEvent actionEvent) throws IOException {
+        Utility.popUp("AddAssignment.fxml", "Add Assignment");
+    @FXML
     private void addCTPopUp(ActionEvent actionEvent) {
     }
+
+    @FXML
+    private void addReferencePopUp(ActionEvent actionEvent) throws IOException {
+        Utility.popUp("AddReference.fxml", "Add Reference");
+    }
+
+    @FXML
+    private void addNoticePopUp(ActionEvent actionEvent) throws IOException {
+        Utility.popUp("AddNotice.fxml", "Add Notice");
+    }
+
 }
