@@ -41,7 +41,7 @@ public class LoginFormController {
 
     @FXML
     private void createNewAccnt(ActionEvent actionEvent) throws IOException {
-        SceneChangerUtility.changeScene(root, "SignupForm.fxml", "Sign Up");
+        Utility.changeScene(root, "SignupForm.fxml", "Sign Up");
     }
 
     @FXML
@@ -52,7 +52,7 @@ public class LoginFormController {
 
         if (!email.isBlank() && !password.isBlank()) {
             if (dbhandaler.checklogin(email, password)) {
-                SceneChangerUtility.changeScene(root, "HomePage.fxml", "Home Page");
+                Utility.changeScene(root, "HomePage.fxml", "Home Page");
             }
             else {
                 wrongPassMgs.setText("Sorry invalid email or password.");

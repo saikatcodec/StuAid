@@ -35,7 +35,7 @@
                                     <Pane prefHeight="34.0" prefWidth="707.0" BorderPane.alignment="CENTER">
                                        <children>
                                           <Label layoutX="19.0" layoutY="11.0" prefHeight="17.0" prefWidth="50.0" text="Today" />
-                                          <Button layoutX="621.0" layoutY="4.0" mnemonicParsing="false" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add Class" />
+                                          <Button fx:id="btnToday" layoutX="621.0" layoutY="4.0" mnemonicParsing="false" onAction="#todayPopUp" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add Class" />
                                           <Line endX="546.800048828125" endY="-3.814697265625E-6" layoutX="141.0" layoutY="34.0" startX="-126.0" startY="-3.814697265625E-6" />
                                        </children>
                                     </Pane>
@@ -46,7 +46,6 @@
                                           <Pane prefHeight="34.0" prefWidth="707.0">
                                              <children>
                                                 <Label layoutX="19.0" layoutY="11.0" prefHeight="17.0" prefWidth="68.0" text="Tomorrow" />
-                                                <Button layoutX="621.0" layoutY="4.0" mnemonicParsing="false" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add Class" />
                                                 <Line endX="546.800048828125" endY="-3.814697265625E-6" layoutX="141.0" layoutY="34.0" startX="-126.0" startY="-3.814697265625E-6" />
                                              </children>
                                           </Pane>
