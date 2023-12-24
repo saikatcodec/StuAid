@@ -7,7 +7,7 @@ import java.util.Date;
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
 
-    public Connection getDbConnection() throws SQLException, SQLException {
+    public Connection getDbConnection() throws SQLException {
         String connectionString = "jdbc:postgresql://" + dbHost + ":" + dbPort + "/" + dbName + "?" + "sslmode=verify-full";
         dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPassword);
         return dbConnection;
@@ -71,11 +71,11 @@ public class DatabaseHandler extends Configs {
     // Get the class which will be held today
     public ResultSet getTodayTasksClass(LocalDate cdate) throws SQLException, RuntimeException {
         ResultSet resultSet = null;
-        String checkquery = "SELECT course_title,cdate,ctime FROM Tasks" +
+        String checkquery = "SELECT course_title,cdate,ctime FROM Tasks " +
                 "WHERE task_type='class' and cdate = ? " +
                 "ORDER BY ctime ASC ";
         PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkquery);
-        preparedStatement.setString(1, cdate.toString());
+        preparedStatement.setDate(1, java.sql.Date.valueOf(cdate));
         resultSet = preparedStatement.executeQuery();
 
         return resultSet;

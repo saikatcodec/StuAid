@@ -5,18 +5,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
-
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 public class AddClassController {
     @FXML
@@ -66,6 +68,7 @@ public class AddClassController {
 
     /**
      * Handler of submit button
+     *
      * @param event event of button
      * @throws ParseException throws an exception
      */
@@ -107,12 +110,21 @@ public class AddClassController {
 
             DatabaseHandler dbUser = new DatabaseHandler();
             dbUser.insertTask(classTitle, date, time, "class");
+            try {
+                FXMLLoader loader = new FXMLLoader(AddClassController.class.getResource("HomePage.fxml"));
+                Parent root = loader.load();
+                HomePageController cnt = loader.getController();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
             closeStage(event);
         }
     }
 
     /**
      * Handler of cancel button
+     *
      * @param actionEvent event of button
      */
     public void closeStage(ActionEvent actionEvent) {

@@ -1,6 +1,7 @@
 package com.retake.stuaid;
 
 import com.retake.stuaid.database.DatabaseHandler;
+import com.retake.stuaid.model.TodoModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,8 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomePageController {
 
@@ -40,29 +43,16 @@ public class HomePageController {
     @FXML
     private VBox vCT;
 
-    public void initialize() throws SQLException {
-//        LocalDate today = LocalDate.now();
-//        DatabaseHandler dbUser = new DatabaseHandler();
-//        ResultSet result = dbUser.getTodayTasksClass(today);
-        Node[] nodes = new Node[10];
-        for (int i = 0; i < nodes.length; i++) {
-            try {
-                nodes[i] = FXMLLoader.load(getClass().getResource("ClassItem.fxml"));
-                vTaskItems.getChildren().add(nodes[i]);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+    public void updateHomeDisplay() throws SQLException, IOException {
+        LocalDate today = LocalDate.now();
+        Utility.addClassItem(today, "ClassItem.fxml", vTaskItems);
 
-        Node[] upcommingNodes = new Node[10];
-        for (int i = 0; i < upcommingNodes.length; i++) {
-            try {
-                upcommingNodes[i] = FXMLLoader.load(getClass().getResource("ClassItem.fxml"));
-                vUpcmngTaskItems.getChildren().add(upcommingNodes[i]);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+        LocalDate tomorrow = today.plusDays(1);
+        Utility.addClassItem(tomorrow, "ClassItem.fxml", vUpcmngTaskItems);
+    }
+
+    public void initialize() throws SQLException, IOException {
+        updateHomeDisplay();
 
         Node[] upcommingCT = new Node[10];
         for (int i = 0; i < upcommingCT.length; i++) {
@@ -86,6 +76,7 @@ public class HomePageController {
         Utility.popUp("AddClass.fxml", "Add Class");
     }
 
-    public void addCTPopUp(ActionEvent actionEvent) {
+    @FXML
+    private void addCTPopUp(ActionEvent actionEvent) {
     }
 }
