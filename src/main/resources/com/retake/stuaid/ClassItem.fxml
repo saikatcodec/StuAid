@@ -19,7 +19,7 @@
       </SplitPane>
    </center>
    <right>
-      <Button mnemonicParsing="false" prefHeight="14.0" prefWidth="70.0" styleClass="btnRed" stylesheets="@css/BtnStyle.css" text="Cancel" BorderPane.alignment="CENTER" />
+      <Button mnemonicParsing="false" prefHeight="14.0" prefWidth="70.0" style="-fx-cursor: hand;" styleClass="btnRed" stylesheets="@css/BtnStyle.css" text="Cancel" BorderPane.alignment="CENTER" />
    </right>
    <padding>
       <Insets left="10.0" right="10.0" />

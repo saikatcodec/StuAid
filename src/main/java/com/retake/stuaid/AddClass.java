@@ -9,8 +9,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class AddClass {
+
+    @FXML
+    private AnchorPane root;
 
     @FXML
     private ChoiceBox<String> choiceAmPm;
@@ -61,9 +66,9 @@ public class AddClass {
 
     }
 
-    @FXML
-    void gotoHomePageByClickingCancel(ActionEvent event) {
-
+    public void closeStage(ActionEvent actionEvent) {
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.close();
     }
 
 }
