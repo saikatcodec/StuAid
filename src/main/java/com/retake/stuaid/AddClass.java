@@ -108,6 +108,7 @@ public class AddClass {
 
             DatabaseHandler dbUser = new DatabaseHandler();
             dbUser.insertTask(classTitle, date, time, "class");
+            closeStage(event);
         }
     }
 

@@ -13,6 +13,12 @@ import javafx.stage.Stage;
 
 public class AddCT {
 
+    public Button btnCtSubmit;
+    public Button btnCtCancel;
+    public ChoiceBox choiceCtAmPm;
+    public TextField txtCtMin;
+    public DatePicker txtCtDate;
+    public TextField txtCtHr;
     @FXML
     private ResourceBundle resources;
 
@@ -49,14 +55,13 @@ public class AddCT {
     }
 
     @FXML
-    private void closeStageCT(ActionEvent event) {
-        Stage stage1 = (Stage) rootAddCT.getScene().getWindow();
-        stage1.close();
-    }
-
-    @FXML
     void initialize() {
 
     }
 
+    public void addNewCt(ActionEvent actionEvent) {
+    }
+
+    public void cancelCtStage(ActionEvent actionEvent) {
+    }
 }
