@@ -21,7 +21,7 @@ public class DatabaseHandler extends Configs {
             preparedStatement.setString(1, email);
             preparedStatement.setString(2, name);
             preparedStatement.setString(3, password);
-            preparedStatement.setString(4, toString().valueOf(usertype));
+            preparedStatement.setString(4, String.valueOf(usertype));
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -39,16 +39,6 @@ public class DatabaseHandler extends Configs {
         resultSet = preparedStatement.executeQuery();
 
         return resultSet;
-    }
-
-    public boolean checklogin(String email, String password) throws SQLException {
-        ResultSet userrow = getUser(email, password);
-        long couter = 0;
-        while (userrow.next()) {
-            couter++;
-        }
-        if (couter == 0) return false;
-        else return true;
     }
 
     public void insertTask(String course_title, LocalDate cdate, String ctime, String task_type) {
@@ -80,7 +70,7 @@ public class DatabaseHandler extends Configs {
 
         return resultSet;
     }
-
+    // get task using type and date
     public ResultSet getAllTasks(Date cdate, String task_type) throws SQLException, RuntimeException {
         ResultSet resultSet = null;
         String checkquery = "SELECT course_title,cdate,ctime FROM Tasks" +
@@ -101,4 +91,31 @@ public class DatabaseHandler extends Configs {
         preparedStatement.executeUpdate();
     }
 
+    public ResultSet ShowAllStudent() throws SQLException, RuntimeException {
+        ResultSet resultSet = null;
+        String showall = "SELECT email,name,usertype FROM projectuser "+
+                "where usertype != 't' ";
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(showall);
+        resultSet = preparedStatement.executeQuery();
+        return resultSet;
+    }
+
+    public void ChangeCr(String email,char usertype) throws SQLException, RuntimeException {
+        if(usertype=='s'){
+           String upquery="UPDATE projectuser set usertype='c' "+
+           " where email=? ";
+           PreparedStatement preparedStatement=getDbConnection().prepareStatement(upquery);
+           preparedStatement.setString(1,email);
+           preparedStatement.setString(2,toString().valueOf(usertype));
+            preparedStatement.executeUpdate();
+        }
+        else{
+            String upquery="UPDATE projectuser set usertype='s' "+
+                    " where email=? ";
+            PreparedStatement preparedStatement=getDbConnection().prepareStatement(upquery);
+            preparedStatement.setString(1,email);
+            preparedStatement.setString(2,toString().valueOf(usertype));
+            preparedStatement.executeUpdate();
+        }
+    }
 }

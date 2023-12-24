@@ -2,6 +2,7 @@ package com.retake.stuaid;
 
 import com.retake.stuaid.database.DatabaseHandler;
 import com.retake.stuaid.model.TodoModel;
+import com.retake.stuaid.session.LoginSession;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -21,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Utility {
+    public static LoginSession session;
+
     public static void changeScene(Parent root, String name, String title) throws IOException {
         FXMLLoader loader = new FXMLLoader(Utility.class.getResource(name));
         Scene scene = new Scene(loader.load());
