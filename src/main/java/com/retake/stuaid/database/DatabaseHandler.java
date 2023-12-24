@@ -50,15 +50,15 @@ public class DatabaseHandler extends Configs {
         if(couter==0) return false;
         else return true;
     }
-    public void insertTask(String course_title,String cdate,String ctime,String task_type){
+    public void insertTask(String course_title,Date cdate,Time ctime,String task_type){
         String insert = "INSERT INTO " + "Tasks " +
                 "VALUES (DEFAULT,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = getDbConnection().prepareStatement(insert);
           //  preparedStatement.setInt(1, DEFAULT);
             preparedStatement.setString(1, course_title);
-            preparedStatement.setString(2, cdate);
-            preparedStatement.setString(3, ctime);
+            preparedStatement.setDate(2,cdate);
+            preparedStatement.setTime(3, ctime);
             preparedStatement.setString(4, task_type);
 
             preparedStatement.executeUpdate();
@@ -67,27 +67,36 @@ public class DatabaseHandler extends Configs {
         }
     }
     // Get the class which will be held today
-    public ResultSet getTodayTasksClass(String cdate) throws SQLException, RuntimeException {
+    public ResultSet getTodayTasksClass(Date cdate) throws SQLException, RuntimeException {
         ResultSet resultSet = null;
        String checkquery= "SELECT course_title,cdate,ctime FROM Tasks"+
         "WHERE task_type='class' and cdate = ? "+
         "ORDER BY ctime ASC ";
         PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkquery);
-        preparedStatement.setString(1,cdate);
+        preparedStatement.setDate(1,cdate);
         resultSet =preparedStatement.executeQuery();
 
         return resultSet;
     }
 
-    public ResultSet getAllTasks(String cdate,String task_type) throws SQLException, RuntimeException {
+    public ResultSet getAllTasks(Date cdate,String task_type) throws SQLException, RuntimeException {
         ResultSet resultSet = null;
         String checkquery= "SELECT course_title,cdate,ctime FROM Tasks"+
                 "WHERE task_type=? and cdate >= ? "+
                 "ORDER BY ctime ASC ";
         PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkquery);
-        preparedStatement.setString(1,cdate);
+        preparedStatement.setDate(1,cdate);
         resultSet =preparedStatement.executeQuery();
 
         return resultSet;
     }
+
+    public void DeletePreviousTasks(Date cdate) throws SQLException, RuntimeException {
+        String checkquery= "DLETE FROM Tasks"+
+                "WHERE cdate < ? ";
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkquery);
+        preparedStatement.setDate(1,cdate);
+        preparedStatement.executeUpdate();
+    }
+
 }
