@@ -29,7 +29,26 @@ public class ProfileInfoController {
 
     public void initialize() throws SQLException, IOException {
         setProfileInfo();
+        showStudents();
+    }
 
+    private void setProfileInfo() {
+        lblProfileName.setText(Utility.session.getName());
+        lblProfileEmail.setText(Utility.session.getEmail());
+        switch (Utility.session.getUserType()) {
+            case 't':
+                lblUserType.setText("Teacher");
+                break;
+            case 's':
+                lblUserType.setText("Student");
+                break;
+            case 'c':
+                lblUserType.setText("Class Representative (CR)");
+                break;
+        }
+    }
+
+    private void showStudents() throws SQLException, IOException {
         DatabaseHandler dbUser = new DatabaseHandler();
         ResultSet resultSet = dbUser.ShowAllStudent();
         List<StudentModel> students = new ArrayList<>();
@@ -48,22 +67,6 @@ public class ProfileInfoController {
             nodes[i] = loader.load();
             vBoxStudent.getChildren().add(nodes[i]);
             controller.setProperties(i + 1, students.get(i));
-        }
-    }
-
-    private void setProfileInfo() {
-        lblProfileName.setText(Utility.session.getName());
-        lblProfileEmail.setText(Utility.session.getEmail());
-        switch (Utility.session.getUserType()) {
-            case 't':
-                lblUserType.setText("Teacher");
-                break;
-            case 's':
-                lblUserType.setText("Student");
-                break;
-            case 'c':
-                lblUserType.setText("Class Representative (CR)");
-                break;
         }
     }
 }

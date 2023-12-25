@@ -101,13 +101,12 @@ public class DatabaseHandler extends Configs {
         return resultSet;
     }
 
-    public void ChangeCr(String email,char usertype) throws SQLException, RuntimeException {
+    public void changeCr(String email,char usertype) throws SQLException, RuntimeException {
         if(usertype=='s'){
            String upquery="UPDATE projectuser set usertype='c' "+
            " where email=? ";
            PreparedStatement preparedStatement=getDbConnection().prepareStatement(upquery);
            preparedStatement.setString(1,email);
-           preparedStatement.setString(2,toString().valueOf(usertype));
             preparedStatement.executeUpdate();
         }
         else{
@@ -115,7 +114,6 @@ public class DatabaseHandler extends Configs {
                     " where email=? ";
             PreparedStatement preparedStatement=getDbConnection().prepareStatement(upquery);
             preparedStatement.setString(1,email);
-            preparedStatement.setString(2,toString().valueOf(usertype));
             preparedStatement.executeUpdate();
         }
     }
