@@ -1,6 +1,5 @@
 package com.retake.stuaid;
 
-import com.retake.stuaid.session.LoginSession;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
