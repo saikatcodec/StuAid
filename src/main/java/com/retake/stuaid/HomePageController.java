@@ -89,7 +89,11 @@ public class HomePageController {
     }
 
     public void initialize() throws SQLException {
-
+        if (Utility.session.getUserType() == 's') {
+            btnToday.setDisable(true);
+            btnAddAssignment.setDisable(true);
+            btnAddCT.setDisable(true);
+        }
         Platform.runLater(() -> {
             try {
                 updateHomeDisplay();

@@ -56,7 +56,7 @@ public class Utility {
 
         while (result.next()) {
             count++;
-            model.add(new TodoModel(result.getString("course_title"), result.getString("cdate"), result.getString("ctime")));
+            model.add(new TodoModel(result.getString("course_title"), result.getString("cdate"), result.getString("ctime"), result.getLong("taskid")));
         }
 
         Node[] nodes = new Node[count];
@@ -78,7 +78,7 @@ public class Utility {
 
         while (result.next()) {
             count++;
-            model.add(new TodoModel(result.getString("course_title"), result.getString("cdate"), result.getString("ctime")));
+            model.add(new TodoModel(result.getString("course_title"), result.getString("cdate"), result.getString("ctime"), result.getLong("taskid")));
         }
 
         Node[] nodes = new Node[count];
