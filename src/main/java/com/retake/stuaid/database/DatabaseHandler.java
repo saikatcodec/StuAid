@@ -75,7 +75,7 @@ public class DatabaseHandler extends Configs {
         ResultSet resultSet = null;
         String checkquery = "SELECT * FROM Tasks " +
                 "WHERE task_type = ? " +
-                "ORDER BY ctime ASC ";
+                "ORDER BY cdate ASC, ctime ASC ";
         PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkquery);
         preparedStatement.setString(1, task_type);
         resultSet = preparedStatement.executeQuery();
