@@ -61,7 +61,7 @@ public class DatabaseHandler extends Configs {
     // Get the class which will be held today
     public ResultSet getTodayTasksClass(LocalDate cdate) throws SQLException, RuntimeException {
         ResultSet resultSet = null;
-        String checkquery = "SELECT course_title,cdate,ctime FROM Tasks " +
+        String checkquery = "SELECT * FROM Tasks " +
                 "WHERE task_type='class' and cdate = ? " +
                 "ORDER BY ctime ASC ";
         PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkquery);
@@ -73,7 +73,7 @@ public class DatabaseHandler extends Configs {
     // get task using type and date
     public ResultSet getCtAssignment(String task_type) throws SQLException, RuntimeException {
         ResultSet resultSet = null;
-        String checkquery = "SELECT course_title,cdate,ctime FROM Tasks " +
+        String checkquery = "SELECT * FROM Tasks " +
                 "WHERE task_type = ? " +
                 "ORDER BY ctime ASC ";
         PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkquery);
@@ -82,6 +82,12 @@ public class DatabaseHandler extends Configs {
         return resultSet;
     }
 
+    public void deletTask(Long taskid) throws SQLException, RuntimeException {
+        String checkquery = "DELETE FROM Tasks WHERE taskid= ? ";
+        PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkquery);
+        preparedStatement.setLong(1, taskid);
+        preparedStatement.executeUpdate();
+    }
     public void DeletePreviousTasks(LocalDate cdate) throws SQLException, RuntimeException {
         String checkquery = "DELETE FROM Tasks WHERE cdate < ? and (task_type='ct' or task_type='class' "+
                 "or task_type = 'assignment') ";
@@ -115,4 +121,5 @@ public class DatabaseHandler extends Configs {
             preparedStatement.executeUpdate();
         }
     }
+
 }
