@@ -18,9 +18,9 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
             <Ellipse fill="#b15eff" layoutX="18.0" layoutY="-2.0" radiusX="104.0" radiusY="64.0" stroke="#b15eff" strokeType="INSIDE" />
-            <Button fx:id="btnProfile" layoutX="634.0" layoutY="21.0" mnemonicParsing="false" onAction="#profileInfoPopUp" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-cursor: hand;" text="Profile" />
-            <Button fx:id="btnLogout" layoutX="565.0" layoutY="21.0" mnemonicParsing="false" onAction="#gotoLoginPageByClickingLogout" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-cursor: hand;" text="Log out" />
-            <Button fx:id="btnRefresh" layoutX="496.0" layoutY="23.0" mnemonicParsing="false" onAction="#reload" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-cursor: hand;" text="Refresh" />
+            <Button fx:id="btnProfile" layoutX="635.0" layoutY="20.0" mnemonicParsing="false" onAction="#profileInfoPopUp" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-cursor: hand;" text="Profile" />
+            <Button fx:id="btnLogout" layoutX="570.0" layoutY="20.0" mnemonicParsing="false" onAction="#gotoLoginPageByClickingLogout" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-cursor: hand;" text="Log out" />
+            <Button fx:id="btnRefresh" layoutX="506.0" layoutY="20.0" mnemonicParsing="false" onAction="#reload" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-cursor: hand;" text="Refresh" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="566.0" prefWidth="700.0">
@@ -123,7 +123,7 @@
                            <children>
                               <ScrollPane prefHeight="407.0" prefWidth="700.0">
                                  <content>
-                                    <VBox prefHeight="407.0" prefWidth="700.0">
+                                    <VBox fx:id="vRef" prefHeight="407.0" prefWidth="700.0">
                                        <children>
                                           <Button fx:id="btnAddRef" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addReferencePopUp" prefHeight="26.0" prefWidth="673.0" style="-fx-cursor: hand;" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add References" />
                                        </children>
@@ -142,7 +142,7 @@
                            <children>
                               <ScrollPane prefHeight="405.0" prefWidth="700.0">
                                  <content>
-                                    <VBox prefHeight="405.0" prefWidth="698.0">
+                                    <VBox fx:id="vNotice" prefHeight="405.0" prefWidth="698.0">
                                        <children>
                                           <Button fx:id="btnAddNotice" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addNoticePopUp" prefHeight="26.0" prefWidth="671.0" style="-fx-cursor: hand;" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add Notice" />
                                        </children>

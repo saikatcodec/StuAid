@@ -79,8 +79,6 @@ public class DatabaseHandler extends Configs {
         PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkquery);
         preparedStatement.setString(1, task_type);
         resultSet = preparedStatement.executeQuery();
-        System.out.println("limon");
-
         return resultSet;
     }
 

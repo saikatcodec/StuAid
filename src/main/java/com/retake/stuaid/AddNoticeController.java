@@ -47,7 +47,7 @@ public class AddNoticeController {
         LocalTime time = LocalTime.now();
         boolean flag = true;
 
-        if (NoticeTitle.isBlank()) {
+        if (NoticeTitle.isBlank() || NoticeTitle.length() > 80) {
             Utility.setBorderColorArea(txtRefArea, color);
             flag = false;
         } else {

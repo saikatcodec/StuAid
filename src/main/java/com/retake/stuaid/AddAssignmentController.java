@@ -78,11 +78,11 @@ public class AddAssignmentController {
         }
 
         if(date.isBlank()) {
-            Utility.setBorderColor(txtAssignmentDate.getEditor(), color);
+            Utility.setBorderColorDatepicker(txtAssignmentDate, color);
             flag = false;
         }
         else {
-            Utility.setBorderColor(txtAssignmentDate.getEditor(), "transparent");
+            Utility.setBorderColorDatepicker(txtAssignmentDate, "transparent");
         }
 
         if (hour.isBlank() || minute.isBlank()) {
