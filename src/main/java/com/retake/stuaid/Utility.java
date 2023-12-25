@@ -47,9 +47,31 @@ public class Utility {
         stage.show();
     }
 
-    public static void addClassItem(LocalDate today, String name, VBox vBox) throws SQLException, IOException {
+    public static void showClassItem(LocalDate today, String name, VBox vBox) throws SQLException, IOException {
         DatabaseHandler dbUser = new DatabaseHandler();
         ResultSet result = dbUser.getTodayTasksClass(today);
+        List<TodoModel> model = new ArrayList<>();
+        int count = 0;
+
+        while (result.next()) {
+            count++;
+            model.add(new TodoModel(result.getString("course_title"), result.getString("cdate"), result.getString("ctime")));
+        }
+
+        Node[] nodes = new Node[count];
+        for (int i = 0; i < nodes.length; i++) {
+            FXMLLoader loader = new FXMLLoader(HomePageController.class.getResource(name));
+            ClassItemController controller = new ClassItemController();
+            loader.setController(controller);
+            nodes[i] = loader.load();
+            vBox.getChildren().add(nodes[i]);
+            controller.setTask(i + 1, model.get(i));
+        }
+    }
+
+    public static void showCtAssignment(String task_type, String name, VBox vBox) throws SQLException, IOException {
+        DatabaseHandler dbUser = new DatabaseHandler();
+        ResultSet result = dbUser.getCtAssignment(task_type);
         List<TodoModel> model = new ArrayList<>();
         int count = 0;
 

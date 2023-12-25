@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootAddAssignment" accessibleRole="DIALOG" prefHeight="310.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.AddReferenceController">
+<AnchorPane fx:id="rootAddRef" accessibleRole="DIALOG" prefHeight="310.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.retake.stuaid.AddReferenceController">
    <children>
       <Button fx:id="btnRefSubmit" layoutX="284.0" layoutY="212.0" mnemonicParsing="false" onAction="#addNewRef" style="-fx-cursor: hand;" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Submit" />
       <Button fx:id="btnRefCancel" layoutX="207.0" layoutY="212.0" mnemonicParsing="false" onAction="#cancelRefStage" style="-fx-cursor: hand;" styleClass="btnRed" stylesheets="@css/BtnStyle.css" text="Cancel" />

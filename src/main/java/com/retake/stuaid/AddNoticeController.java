@@ -55,12 +55,8 @@ public class AddNoticeController {
         }
 
         if (flag) {
-            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aa");
-            Date timeParse = timeFormat.parse(String.valueOf(time));
-            String time1 = timeFormat.format(timeParse);
-
             DatabaseHandler dbUser = new DatabaseHandler();
-            dbUser.insertTask(NoticeTitle, date, time1, "notice");
+            dbUser.insertTask(NoticeTitle, date, String.valueOf(time), "notice");
             closeStage(event);
         }
     }

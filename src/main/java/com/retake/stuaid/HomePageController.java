@@ -1,5 +1,6 @@
 package com.retake.stuaid;
 
+import com.retake.stuaid.database.DatabaseHandler;
 import com.retake.stuaid.session.LoginSession;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -39,14 +40,24 @@ public class HomePageController {
     @FXML
     private VBox vCT;
 
+    @FXML
+    private VBox vAssignment;
+
+    DatabaseHandler handler = new DatabaseHandler();
+
     public void updateHomeDisplay() throws SQLException, IOException {
+
         LocalDate today = LocalDate.now();
-        Utility.addClassItem(today, "ClassItem.fxml", vTaskItems);
+        handler.DeletePreviousTasks(today);
+
+        Utility.showClassItem(today, "ClassItem.fxml", vTaskItems);
 
         LocalDate tomorrow = today.plusDays(1);
-        Utility.addClassItem(tomorrow, "ClassItem.fxml", vUpcmngTaskItems);
+        Utility.showClassItem(tomorrow, "ClassItem.fxml", vUpcmngTaskItems);
 
+        Utility.showCtAssignment("ct", "ClassItem.fxml", vCT);
 
+        Utility.showCtAssignment("assignment", "ClassItem.fxml", vAssignment);
     }
 
     public void reload() {
@@ -59,7 +70,8 @@ public class HomePageController {
         });
     }
 
-    public void initialize() {
+    public void initialize() throws SQLException {
+
         Platform.runLater(() -> {
             try {
                 updateHomeDisplay();
@@ -67,17 +79,6 @@ public class HomePageController {
                 throw new RuntimeException(e);
             }
         });
-
-        Node[] upcommingCT = new Node[10];
-        for (int i = 0; i < upcommingCT.length; i++) {
-            try {
-                upcommingCT[i] = FXMLLoader.load(getClass().getResource("ClassItem.fxml"));
-                vCT.getChildren().add(upcommingCT[i]);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
     }
 
     @FXML

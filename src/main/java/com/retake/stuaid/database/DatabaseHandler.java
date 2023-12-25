@@ -71,23 +71,24 @@ public class DatabaseHandler extends Configs {
         return resultSet;
     }
     // get task using type and date
-    public ResultSet getAllTasks(Date cdate, String task_type) throws SQLException, RuntimeException {
+    public ResultSet getCtAssignment(String task_type) throws SQLException, RuntimeException {
         ResultSet resultSet = null;
-        String checkquery = "SELECT course_title,cdate,ctime FROM Tasks" +
-                "WHERE task_type=? and cdate >= ? " +
+        String checkquery = "SELECT course_title,cdate,ctime FROM Tasks " +
+                "WHERE task_type = ? " +
                 "ORDER BY ctime ASC ";
         PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkquery);
-        preparedStatement.setString(1, cdate.toString());
+        preparedStatement.setString(1, task_type);
         resultSet = preparedStatement.executeQuery();
+        System.out.println("limon");
 
         return resultSet;
     }
 
-    public void DeletePreviousTasks(Date cdate) throws SQLException, RuntimeException {
-        String checkquery = "DLETE FROM Tasks" +
-                "WHERE cdate < ? ";
+    public void DeletePreviousTasks(LocalDate cdate) throws SQLException, RuntimeException {
+        String checkquery = "DELETE FROM Tasks WHERE cdate < ? and (task_type='ct' or task_type='class' "+
+                "or task_type = 'assignment') ";
         PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkquery);
-        preparedStatement.setString(1, cdate.toString());
+        preparedStatement.setDate(1, java.sql.Date.valueOf(cdate));
         preparedStatement.executeUpdate();
     }
 
