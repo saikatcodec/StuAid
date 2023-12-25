@@ -1,12 +1,9 @@
 package com.retake.stuaid;
 
-import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.ResourceBundle;
-import java.util.SimpleTimeZone;
 
 import com.retake.stuaid.database.DatabaseHandler;
 import javafx.collections.FXCollections;
@@ -21,45 +18,20 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class AddCTController {
-
-    public Button btnCtSubmit;
-    public Button btnCtCancel;
-
-    @FXML
-    private ChoiceBox choiceCtAmPm;
-
     @FXML
     private TextField txtCtMin;
-
     @FXML
     private DatePicker txtCtDate;
-
     @FXML
     private TextField txtCtHr;
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
     @FXML
     private ChoiceBox<String> choiceCTAmPm;
-
     @FXML
     private AnchorPane rootAddCT;
-
     @FXML
     private TextField txtClassTest;
-    
     @FXML
     private final String color = "#B80000";
-
-    @FXML
-    void addNewCourse(ActionEvent event) {
-
-    }
-
     @FXML
     ObservableList<String> CTAmPmList = FXCollections.observableArrayList("AM", "PM");
 
@@ -73,10 +45,9 @@ public class AddCTController {
     private void addNewCt(ActionEvent event) throws ParseException {
         String CtTitle = txtClassTest.getText();
         String date = String.valueOf(txtCtDate.getValue());
-//        LocalDate date = LocalDate.now();
         String hour = txtCtHr.getText();
         String minute = txtCtMin.getText();
-        String amOrPm = (String) choiceCTAmPm.getValue();
+        String amOrPm = choiceCTAmPm.getValue();
         boolean flag = true;
 
         if (CtTitle.isBlank()) {

@@ -1,18 +1,15 @@
 package com.retake.stuaid;
 
-import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.ResourceBundle;
 
 import com.retake.stuaid.database.DatabaseHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -20,37 +17,18 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class AddAssignmentController {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private Button btnAssignmentCancel;
-
-    @FXML
-    private Button btnAssignmentSubmit;
-
     @FXML
     private ChoiceBox<String> choiceAssignmentAmPm;
-
     @FXML
     private AnchorPane rootAssignment;
-
     @FXML
     private TextField txtAssignment;
-
     @FXML
     private DatePicker txtAssignmentDate;
-
     @FXML
     private TextField txtAssignmentHr;
-
     @FXML
     private TextField txtAssignmentMin;
-    
     @FXML
     private final String color = "#B80000";
     
@@ -64,10 +42,9 @@ public class AddAssignmentController {
     private void addNewAssignment(ActionEvent event) throws ParseException {
         String AssignmentTitle = txtAssignment.getText();
         String date = String.valueOf(txtAssignmentDate.getValue());
-//        LocalDate date = LocalDate.now();
         String hour = txtAssignmentHr.getText();
         String minute = txtAssignmentMin.getText();
-        String amOrPm = (String) choiceAssignmentAmPm.getValue();
+        String amOrPm = choiceAssignmentAmPm.getValue();
         boolean flag = true;
 
         if (AssignmentTitle.isBlank()) {

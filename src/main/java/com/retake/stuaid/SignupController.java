@@ -1,8 +1,6 @@
 package com.retake.stuaid;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.URL;
 import java.util.regex.Pattern;
 
 import com.retake.stuaid.database.DatabaseHandler;
@@ -12,34 +10,18 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 
 public class SignupController {
-
-    @FXML
-    private Button txtSignUp;
-
-    @FXML
-    private Button txtLogIn;
-
     @FXML
     private BorderPane root;
-
     @FXML
     private CheckBox chkboxTeacher;
-
-    @FXML
-    private Button txtSignIn;
-
     @FXML
     private PasswordField txtConfirmPass;
-
     @FXML
     private TextField txtEmail;
-
     @FXML
     private TextField txtName;
-
     @FXML
     private PasswordField txtPass;
-
     @FXML
     private Label lblPassMsg;
 

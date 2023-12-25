@@ -1,42 +1,21 @@
 package com.retake.stuaid;
 
-import java.net.URL;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
-import java.util.ResourceBundle;
 
 import com.retake.stuaid.database.DatabaseHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class AddNoticeController {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private Button btnNoticeCancel;
-
-    @FXML
-    private Button btnNoticeSubmit;
-
     @FXML
     private AnchorPane rootAddNotice;
-
     @FXML
     private TextArea txtRefArea;
-
     @FXML
     private final String color = "#B80000";
 
@@ -72,10 +51,4 @@ public class AddNoticeController {
         Stage stage = (Stage) rootAddNotice.getScene().getWindow();
         stage.close();
     }
-
-    @FXML
-    void initialize() {
-
-    }
-
 }

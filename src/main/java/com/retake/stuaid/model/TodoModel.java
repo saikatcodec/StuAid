@@ -1,5 +1,9 @@
 package com.retake.stuaid.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class TodoModel {
     private Long taskId;
     public String className;
@@ -9,7 +13,15 @@ public class TodoModel {
     public TodoModel(String className, String date, String time, Long taskId) {
         this.className = className;
         this.date = date;
-        this.time = time;
+        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+        try {
+            Date timeParse = timeFormat.parse(time);
+            SimpleDateFormat time12Hour = new SimpleDateFormat("hh:mm a");
+            this.time = time12Hour.format(timeParse);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
         this.taskId = taskId;
     }
 

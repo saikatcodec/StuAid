@@ -19,25 +19,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class AddReferenceController {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private Button btnRefCancel;
-
-    @FXML
-    private Button btnRefSubmit;
-
     @FXML
     private AnchorPane rootAddRef;
-
     @FXML
     private TextArea txtRefArea;
-
     @FXML
     private final String color = "#B80000";
 
@@ -73,10 +58,4 @@ public class AddReferenceController {
         Stage stage = (Stage) rootAddRef.getScene().getWindow();
         stage.close();
     }
-
-    @FXML
-    void initialize() {
-
-    }
-
 }

@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -18,8 +17,6 @@ import java.util.List;
 public class ProfileInfoController {
     @FXML
     private VBox vBoxStudent;
-    @FXML
-    private AnchorPane root;
     @FXML
     private Label lblProfileName;
     @FXML

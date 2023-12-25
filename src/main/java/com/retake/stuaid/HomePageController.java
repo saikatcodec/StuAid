@@ -1,23 +1,17 @@
 package com.retake.stuaid;
 
 import com.retake.stuaid.database.DatabaseHandler;
-import com.retake.stuaid.session.LoginSession;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class HomePageController {
-    @FXML
-    private Button btnRefresh;
     @FXML
     private Button btnAddCT;
     @FXML
@@ -30,12 +24,6 @@ public class HomePageController {
     private Button btnToday;
     @FXML
     private VBox root;
-    @FXML
-    private URL location;
-    @FXML
-    private Button btnLogout;
-    @FXML
-    private Button btnProfile;
     @FXML
     private VBox vTaskItems;
     @FXML
@@ -60,6 +48,10 @@ public class HomePageController {
         vCT.getChildren().add(btnAddCT);
         vAssignment.getChildren().clear();
         vAssignment.getChildren().add(btnAddAssignment);
+        vRef.getChildren().clear();
+        vRef.getChildren().add(btnAddRef);
+        vNotice.getChildren().clear();
+        vNotice.getChildren().add(btnAddNotice);
 
         LocalDate today = LocalDate.now();
         handler.DeletePreviousTasks(today);
@@ -68,13 +60,9 @@ public class HomePageController {
 
         LocalDate tomorrow = today.plusDays(1);
         Utility.showClassItem(tomorrow, "ClassItem.fxml", vUpcmngTaskItems);
-
         Utility.showCtAssignment("ct", "ClassItem.fxml", vCT);
-
         Utility.showCtAssignment("assignment", "ClassItem.fxml", vAssignment);
-
         Utility.showCtAssignment("reference", "ClassItem.fxml", vRef);
-
         Utility.showCtAssignment("notice", "ClassItem.fxml", vNotice);
     }
 

@@ -4,7 +4,6 @@ import com.retake.stuaid.database.DatabaseHandler;
 import com.retake.stuaid.session.LoginSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -19,9 +18,6 @@ public class LoginFormController {
     private BorderPane root;
 
     @FXML
-    private Button txtCreateAcc;
-
-    @FXML
     private TextField txtEmail;
 
     @FXML
@@ -29,9 +25,6 @@ public class LoginFormController {
 
     @FXML
     private Label wrongPassMgs;
-
-    @FXML
-    private Button txtSignIn;
 
     @FXML
     private void createNewAccnt(ActionEvent actionEvent) throws IOException {
@@ -63,7 +56,6 @@ public class LoginFormController {
             String name = userRow.getString("name");
             char userType = userRow.getString("usertype").charAt(0);
             Utility.session = LoginSession.getLoginSession(emailSql, name, userType);
-            System.out.println(Utility.session);
             return true;
         }
 

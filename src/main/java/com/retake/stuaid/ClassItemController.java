@@ -28,15 +28,14 @@ public class ClassItemController {
 
     public void initialize() {
         if (Utility.session.getUserType() == 's') {
-            btnClassCancel.setDisable(true);
+            btnClassCancel.setVisible(false);
         }
 
         btnClassCancel.setOnAction(event -> {
             DatabaseHandler dbUser = new DatabaseHandler();
             try {
                 dbUser.deletTask(todoModel.getTaskId());
-                btnClassCancel.setVisible(false);
-//                btnClassCancel.getParent().setStyle("visibility: false");
+                btnClassCancel.getParent().setVisible(false);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }

@@ -5,17 +5,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -24,28 +18,14 @@ import java.util.Date;
 public class AddClassController {
     @FXML
     private AnchorPane root;
-
     @FXML
     private ChoiceBox<String> choiceAmPm;
-
     @FXML
     private ChoiceBox<String> choiceTdayTmrow;
-
-    @FXML
-    private Button btnCancel;
-
-    @FXML
-    private Button btnSubmit;
-
     @FXML
     private TextField txtCourseTitle;
-
-    @FXML
-    private DatePicker txtDateString;
-
     @FXML
     private TextField txtTimeHr;
-
     @FXML
     private TextField txtTimeMin;
     private final String color = "#B80000";
