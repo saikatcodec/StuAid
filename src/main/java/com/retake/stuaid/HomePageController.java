@@ -17,29 +17,31 @@ import java.time.LocalDate;
 
 public class HomePageController {
     @FXML
+    private Button btnRefresh;
+    @FXML
+    private Button btnAddCT;
+    @FXML
+    private Button btnAddAssignment;
+    @FXML
+    private Button btnAddRef;
+    @FXML
+    private Button btnAddNotice;
+    @FXML
     private Button btnToday;
-
     @FXML
     private VBox root;
-
     @FXML
     private URL location;
-
     @FXML
     private Button btnLogout;
-
     @FXML
     private Button btnProfile;
-
     @FXML
     private VBox vTaskItems;
-
     @FXML
     private VBox vUpcmngTaskItems;
-
     @FXML
     private VBox vCT;
-
     @FXML
     private VBox vRef;
 
@@ -52,6 +54,12 @@ public class HomePageController {
     DatabaseHandler handler = new DatabaseHandler();
 
     public void updateHomeDisplay() throws SQLException, IOException {
+        vTaskItems.getChildren().clear();
+        vUpcmngTaskItems.getChildren().clear();
+        vCT.getChildren().clear();
+        vCT.getChildren().add(btnAddCT);
+        vAssignment.getChildren().clear();
+        vAssignment.getChildren().add(btnAddAssignment);
 
         LocalDate today = LocalDate.now();
         handler.DeletePreviousTasks(today);
