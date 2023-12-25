@@ -43,6 +43,12 @@ public class HomePageController {
     @FXML
     private VBox vCT;
     @FXML
+    private VBox vRef;
+
+    @FXML
+    private VBox vNotice;
+
+    @FXML
     private VBox vAssignment;
 
     DatabaseHandler handler = new DatabaseHandler();
@@ -66,6 +72,10 @@ public class HomePageController {
         Utility.showCtAssignment("ct", "ClassItem.fxml", vCT);
 
         Utility.showCtAssignment("assignment", "ClassItem.fxml", vAssignment);
+
+        Utility.showCtAssignment("reference", "ClassItem.fxml", vRef);
+
+        Utility.showCtAssignment("notice", "ClassItem.fxml", vNotice);
     }
 
     public void reload() {

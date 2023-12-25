@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -97,5 +98,9 @@ public class Utility {
 
     public static void setBorderColorArea(TextArea txtRefArea, String color) {
         txtRefArea.setStyle("-fx-border-color: " + color);
+    }
+
+    public static void setBorderColorDatepicker(DatePicker txtAssignmentDate, String color) {
+        txtAssignmentDate.setStyle("-fx-border-color" + color);
     }
 }

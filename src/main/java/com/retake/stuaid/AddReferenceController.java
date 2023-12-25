@@ -48,7 +48,7 @@ public class AddReferenceController {
         LocalTime time = LocalTime.now();
         boolean flag = true;
 
-        if (ReferenceTitle.isBlank()) {
+        if (ReferenceTitle.isBlank() || ReferenceTitle.length() > 80) {
             Utility.setBorderColorArea(txtRefArea, color);
             flag = false;
         } else {
