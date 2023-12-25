@@ -77,6 +77,14 @@ public class AddAssignmentController {
             Utility.setBorderColor(txtAssignment, "transparent");
         }
 
+        if(date.isBlank()) {
+            Utility.setBorderColor(txtAssignmentDate.getEditor(), color);
+            flag = false;
+        }
+        else {
+            Utility.setBorderColor(txtAssignmentDate.getEditor(), "transparent");
+        }
+
         if (hour.isBlank() || minute.isBlank()) {
             Utility.setBorderColor(txtAssignmentHr, color);
             Utility.setBorderColor(txtAssignmentMin, color);
