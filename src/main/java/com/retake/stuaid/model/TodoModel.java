@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class TodoModel {
-    private Long taskId;
+    private final Long taskId;
     public String className;
     public String date;
     public String time;
