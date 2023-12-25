@@ -18,9 +18,9 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
             <Ellipse fill="#b15eff" layoutX="18.0" layoutY="-2.0" radiusX="104.0" radiusY="64.0" stroke="#b15eff" strokeType="INSIDE" />
-            <Button layoutX="634.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-cursor: hand;" text="Profile" />
-            <Button fx:id="btnLogout" layoutX="565.0" layoutY="21.0" mnemonicParsing="false" onAction="#gotoLoginPageByClickingLogout" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-cursor: hand;" text="Log out" />
-            <Button fx:id="btnRefresh" layoutX="496.0" layoutY="23.0" mnemonicParsing="false" onAction="#reload" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-cursor: hand;" text="Refresh" />
+            <Button fx:id="btnProfile" layoutX="635.0" layoutY="20.0" mnemonicParsing="false" onAction="#profileInfoPopUp" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-cursor: hand;" text="Profile" />
+            <Button fx:id="btnLogout" layoutX="570.0" layoutY="20.0" mnemonicParsing="false" onAction="#gotoLoginPageByClickingLogout" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-cursor: hand;" text="Log out" />
+            <Button fx:id="btnRefresh" layoutX="506.0" layoutY="20.0" mnemonicParsing="false" onAction="#reload" style="-fx-background-color: #B15EFF; -fx-text-fill: white; -fx-cursor: hand;" text="Refresh" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="566.0" prefWidth="700.0">
@@ -101,7 +101,7 @@
                            <children>
                               <ScrollPane prefHeight="408.0" prefWidth="700.0">
                                  <content>
-                                    <VBox fx:id="vAssignment" prefHeight="409.0" prefWidth="702.0">
+                                    <VBox prefHeight="409.0" prefWidth="702.0">
                                        <children>
                                           <Button fx:id="btnAddAssignment" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addAssignmentPupUp" prefHeight="26.0" prefWidth="674.0" style="-fx-cursor: hand;" styleClass="btnGreen" stylesheets="@css/BtnStyle.css" text="Add Assignment" />
                                        </children>
