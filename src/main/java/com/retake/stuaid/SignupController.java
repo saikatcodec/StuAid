@@ -1,9 +1,12 @@
 package com.retake.stuaid;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.regex.Pattern;
 
 import com.retake.stuaid.database.DatabaseHandler;
+import com.retake.stuaid.security.PasswordHash;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -41,7 +44,7 @@ public class SignupController {
      * @throws IOException exception
      */
     @FXML
-    private void gotoLoginPagebyClickingSignUp(ActionEvent actionEvent) throws IOException {
+    private void gotoLoginPagebyClickingSignUp(ActionEvent actionEvent) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
         // TODO check email before creating account
         String password = txtPass.getText();
         String confirmPassword = txtConfirmPass.getText();
@@ -66,7 +69,8 @@ public class SignupController {
         }
 
         if (checkConfirmPassword(password, confirmPassword) && flag) {
-            dbUser.signupUser(emailText, name, password, ((teacherOrNot) ? 't': 's'));
+            String hashPassword = PasswordHash.hashPassword(password);
+            dbUser.signupUser(emailText, name, hashPassword, ((teacherOrNot) ? 't': 's'));
             Utility.changeScene(root, "LoginForm.fxml", "Log In");
         }
     }

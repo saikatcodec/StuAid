@@ -1,6 +1,7 @@
 package com.retake.stuaid;
 
 import com.retake.stuaid.database.DatabaseHandler;
+import com.retake.stuaid.security.PasswordHash;
 import com.retake.stuaid.session.LoginSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -49,14 +52,23 @@ public class LoginFormController {
 
     private boolean checkLogin(String email, String password) throws SQLException {
         DatabaseHandler dbUser = new DatabaseHandler();
-        ResultSet userRow = dbUser.getUser(email, password);
+        ResultSet userRow = dbUser.getUser(email);
 
         while (userRow.next()) {
             String emailSql = userRow.getString("email");
-            String name = userRow.getString("name");
-            char userType = userRow.getString("usertype").charAt(0);
-            Utility.session = LoginSession.getLoginSession(emailSql, name, userType);
-            return true;
+            String hashPassword = userRow.getString("password");
+            try {
+                if (PasswordHash.validatePassword(password, hashPassword)) {
+                    String name = userRow.getString("name");
+                    char userType = userRow.getString("usertype").charAt(0);
+                    Utility.session = LoginSession.getLoginSession(emailSql, name, userType);
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         return false;

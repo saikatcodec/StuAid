@@ -29,13 +29,12 @@ public class DatabaseHandler extends Configs {
     }
 
     // geting all row from data base for given email and passsword
-    public ResultSet getUser(String email, String password) throws SQLException, RuntimeException {
+    public ResultSet getUser(String email) throws SQLException, RuntimeException {
         ResultSet resultSet = null;
-        String checkMail = "SELECT * FROM projectuser " + "WHERE email = ? " + "AND password= ? ";
+        String checkMail = "SELECT * FROM projectuser " + "WHERE email = ? ";
 
         PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkMail);
         preparedStatement.setString(1, email);
-        preparedStatement.setString(2, password);
         resultSet = preparedStatement.executeQuery();
 
         return resultSet;
