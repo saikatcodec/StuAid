@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class HomePageController {
+    DatabaseHandler handler = new DatabaseHandler();
     @FXML
     private Button btnAddCT;
     @FXML
@@ -32,14 +33,10 @@ public class HomePageController {
     private VBox vCT;
     @FXML
     private VBox vRef;
-
     @FXML
     private VBox vNotice;
-
     @FXML
     private VBox vAssignment;
-
-    DatabaseHandler handler = new DatabaseHandler();
 
     public void updateHomeDisplay() throws SQLException, IOException {
         vTaskItems.getChildren().clear();

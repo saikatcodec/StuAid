@@ -1,9 +1,5 @@
 package com.retake.stuaid;
 
-import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 import com.retake.stuaid.database.DatabaseHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,13 +7,17 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class AddNoticeController {
+    @FXML
+    private final String color = "#B80000";
     @FXML
     private AnchorPane rootAddNotice;
     @FXML
     private TextArea txtRefArea;
-    @FXML
-    private final String color = "#B80000";
 
     @FXML
     private void addNewNotice(ActionEvent event) throws ParseException {

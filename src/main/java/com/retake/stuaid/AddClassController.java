@@ -16,6 +16,11 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class AddClassController {
+    private final String color = "#B80000";
+    @FXML
+    ObservableList<String> AmPmlist = FXCollections.observableArrayList("AM", "PM");
+    @FXML
+    ObservableList<String> dayList = FXCollections.observableArrayList("Today", "Tomorrow");
     @FXML
     private AnchorPane root;
     @FXML
@@ -28,13 +33,6 @@ public class AddClassController {
     private TextField txtTimeHr;
     @FXML
     private TextField txtTimeMin;
-    private final String color = "#B80000";
-
-    @FXML
-    ObservableList<String> AmPmlist = FXCollections.observableArrayList("AM", "PM");
-
-    @FXML
-    ObservableList<String> dayList = FXCollections.observableArrayList("Today", "Tomorrow");
 
     /**
      * Before load the scene, init function is closed
@@ -67,10 +65,10 @@ public class AddClassController {
             Utility.setBorderColor(txtCourseTitle, color);
             flag = false;
         } else {
-           Utility.setBorderColor(txtCourseTitle, "transparent");
+            Utility.setBorderColor(txtCourseTitle, "transparent");
         }
 
-        if (hour.isBlank() || minute.isBlank()) {
+        if (hour.isBlank() || minute.isBlank() || Integer.parseInt(hour) > 12 || Integer.parseInt(hour) < 1 || Integer.parseInt(minute) > 59 || Integer.parseInt(minute) < 0) {
             Utility.setBorderColor(txtTimeHr, color);
             Utility.setBorderColor(txtTimeMin, color);
             flag = false;

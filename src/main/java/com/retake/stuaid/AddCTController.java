@@ -1,23 +1,26 @@
 package com.retake.stuaid;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
-
 import com.retake.stuaid.database.DatabaseHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
+
 public class AddCTController {
+    @FXML
+    private final String color = "#B80000";
+    @FXML
+    ObservableList<String> CTAmPmList = FXCollections.observableArrayList("AM", "PM");
     @FXML
     private TextField txtCtMin;
     @FXML
@@ -30,10 +33,6 @@ public class AddCTController {
     private AnchorPane rootAddCT;
     @FXML
     private TextField txtClassTest;
-    @FXML
-    private final String color = "#B80000";
-    @FXML
-    ObservableList<String> CTAmPmList = FXCollections.observableArrayList("AM", "PM");
 
     @FXML
     void initialize() {
@@ -57,7 +56,7 @@ public class AddCTController {
             Utility.setBorderColor(txtClassTest, "transparent");
         }
 
-        if (hour.isBlank() || minute.isBlank()) {
+        if (hour.isBlank() || minute.isBlank() || Integer.parseInt(hour) > 12 || Integer.parseInt(hour) < 1 || Integer.parseInt(minute) > 59 || Integer.parseInt(minute) < 0) {
             Utility.setBorderColor(txtCtHr, color);
             Utility.setBorderColor(txtCtMin, color);
             flag = false;

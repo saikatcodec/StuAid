@@ -1,11 +1,10 @@
 package com.retake.stuaid.session;
 
 public final class LoginSession {
+    private static LoginSession instance;
     private String email;
     private String name;
     private Character userType;
-
-    private static LoginSession instance;
 
     private LoginSession(String email, String name, char userType) {
         this.email = email;

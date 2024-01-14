@@ -54,7 +54,7 @@ public class LoginFormController {
         DatabaseHandler dbUser = new DatabaseHandler();
         ResultSet userRow = dbUser.getUser(email);
 
-        while (userRow.next()) {
+        if (userRow.next()) {
             String emailSql = userRow.getString("email");
             String hashPassword = userRow.getString("password");
             try {
