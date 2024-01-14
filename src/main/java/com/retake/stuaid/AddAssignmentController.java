@@ -1,10 +1,5 @@
 package com.retake.stuaid;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
-
 import com.retake.stuaid.database.DatabaseHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,7 +11,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
+
 public class AddAssignmentController {
+    @FXML
+    private final String color = "#B80000";
+    @FXML
+    ObservableList<String> AssignAmPm = FXCollections.observableArrayList("AM", "PM");
     @FXML
     private ChoiceBox<String> choiceAssignmentAmPm;
     @FXML
@@ -29,15 +33,13 @@ public class AddAssignmentController {
     private TextField txtAssignmentHr;
     @FXML
     private TextField txtAssignmentMin;
-    @FXML
-    private final String color = "#B80000";
-    
+
     @FXML
     void cancelAssignmentStage(ActionEvent event) {
         Stage stage = (Stage) rootAssignment.getScene().getWindow();
         stage.close();
     }
-    
+
     @FXML
     private void addNewAssignment(ActionEvent event) throws ParseException {
         String AssignmentTitle = txtAssignment.getText();
@@ -54,15 +56,14 @@ public class AddAssignmentController {
             Utility.setBorderColor(txtAssignment, "transparent");
         }
 
-        if(date.isBlank()) {
+        if (date.isBlank()) {
             Utility.setBorderColorDatepicker(txtAssignmentDate, color);
             flag = false;
-        }
-        else {
+        } else {
             Utility.setBorderColorDatepicker(txtAssignmentDate, "transparent");
         }
 
-        if (hour.isBlank() || minute.isBlank()) {
+        if (hour.isBlank() || minute.isBlank() || Integer.parseInt(hour) > 12 || Integer.parseInt(hour) < 1 || Integer.parseInt(minute) > 59 || Integer.parseInt(minute) < 0) {
             Utility.setBorderColor(txtAssignmentHr, color);
             Utility.setBorderColor(txtAssignmentMin, color);
             flag = false;
@@ -88,9 +89,6 @@ public class AddAssignmentController {
         Stage stage = (Stage) rootAssignment.getScene().getWindow();
         stage.close();
     }
-
-    @FXML
-    ObservableList<String> AssignAmPm = FXCollections.observableArrayList("AM", "PM");
 
     @FXML
     void initialize() {

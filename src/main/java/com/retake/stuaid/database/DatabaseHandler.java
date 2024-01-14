@@ -2,13 +2,12 @@ package com.retake.stuaid.database;
 
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
 
     public Connection getDbConnection() throws SQLException {
-        String connectionString = "jdbc:postgresql://" + dbHost + ":" + dbPort + "/" + dbName + "?" + "sslmode=verify-full";
+        String connectionString = "jdbc:postgresql://" + dbHost + ":" + dbPort + "/" + dbName;
         dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPassword);
         return dbConnection;
     }
@@ -69,6 +68,7 @@ public class DatabaseHandler extends Configs {
 
         return resultSet;
     }
+
     // get task using type and date
     public ResultSet getCtAssignment(String task_type) throws SQLException, RuntimeException {
         ResultSet resultSet = null;
@@ -87,8 +87,9 @@ public class DatabaseHandler extends Configs {
         preparedStatement.setLong(1, taskid);
         preparedStatement.executeUpdate();
     }
+
     public void DeletePreviousTasks(LocalDate cdate) throws SQLException, RuntimeException {
-        String checkquery = "DELETE FROM Tasks WHERE cdate < ? and (task_type='ct' or task_type='class' "+
+        String checkquery = "DELETE FROM Tasks WHERE cdate < ? and (task_type='ct' or task_type='class' " +
                 "or task_type = 'assignment') ";
         PreparedStatement preparedStatement = getDbConnection().prepareStatement(checkquery);
         preparedStatement.setDate(1, java.sql.Date.valueOf(cdate));
@@ -97,26 +98,25 @@ public class DatabaseHandler extends Configs {
 
     public ResultSet ShowAllStudent() throws SQLException, RuntimeException {
         ResultSet resultSet = null;
-        String showall = "SELECT email,name,usertype FROM projectuser "+
+        String showall = "SELECT email,name,usertype FROM projectuser " +
                 "where usertype != 't' ";
         PreparedStatement preparedStatement = getDbConnection().prepareStatement(showall);
         resultSet = preparedStatement.executeQuery();
         return resultSet;
     }
 
-    public void changeCr(String email,char usertype) throws SQLException, RuntimeException {
-        if(usertype=='s'){
-           String upquery="UPDATE projectuser set usertype='c' "+
-           " where email=? ";
-           PreparedStatement preparedStatement=getDbConnection().prepareStatement(upquery);
-           preparedStatement.setString(1,email);
-            preparedStatement.executeUpdate();
-        }
-        else{
-            String upquery="UPDATE projectuser set usertype='s' "+
+    public void changeCr(String email, char usertype) throws SQLException, RuntimeException {
+        if (usertype == 's') {
+            String upquery = "UPDATE projectuser set usertype='c' " +
                     " where email=? ";
-            PreparedStatement preparedStatement=getDbConnection().prepareStatement(upquery);
-            preparedStatement.setString(1,email);
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(upquery);
+            preparedStatement.setString(1, email);
+            preparedStatement.executeUpdate();
+        } else {
+            String upquery = "UPDATE projectuser set usertype='s' " +
+                    " where email=? ";
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(upquery);
+            preparedStatement.setString(1, email);
             preparedStatement.executeUpdate();
         }
     }

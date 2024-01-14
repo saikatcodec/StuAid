@@ -1,16 +1,20 @@
 package com.retake.stuaid;
 
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.regex.Pattern;
-
 import com.retake.stuaid.database.DatabaseHandler;
 import com.retake.stuaid.security.PasswordHash;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.sql.SQLException;
+import java.util.regex.Pattern;
 
 public class SignupController {
     @FXML
@@ -30,6 +34,7 @@ public class SignupController {
 
     /**
      * Handler of LogIn Button
+     *
      * @param actionEvent event of LogIn button
      * @throws IOException throw exception
      */
@@ -40,11 +45,12 @@ public class SignupController {
 
     /**
      * Handler of SignUp Button
+     *
      * @param actionEvent event of SigUp Button
      * @throws IOException exception
      */
     @FXML
-    private void gotoLoginPagebyClickingSignUp(ActionEvent actionEvent) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
+    private void gotoLoginPagebyClickingSignUp(ActionEvent actionEvent) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException, SQLException {
         // TODO check email before creating account
         String password = txtPass.getText();
         String confirmPassword = txtConfirmPass.getText();
@@ -61,7 +67,7 @@ public class SignupController {
             setBorderColor(txtName, "transparent");
         }
 
-        if (emailText.isBlank() || !(isValidEmail(emailText))) {
+        if (emailText.isBlank() || !(isValidEmail(emailText)) || dbUser.getUser(emailText).next()) {
             setBorderColor(txtEmail, "red");
             flag = false;
         } else {
@@ -70,14 +76,15 @@ public class SignupController {
 
         if (checkConfirmPassword(password, confirmPassword) && flag) {
             String hashPassword = PasswordHash.hashPassword(password);
-            dbUser.signupUser(emailText, name, hashPassword, ((teacherOrNot) ? 't': 's'));
+            dbUser.signupUser(emailText, name, hashPassword, ((teacherOrNot) ? 't' : 's'));
             Utility.changeScene(root, "LoginForm.fxml", "Log In");
         }
     }
 
     /**
      * Checking two password are equal or not
-     * @param password password from passwordField
+     *
+     * @param password        password from passwordField
      * @param confirmPassword password from passwordField for confirmation
      * @return Are two password same?
      */
@@ -97,7 +104,8 @@ public class SignupController {
 
     /**
      * Set border of Node
-     * @param node Node of textField
+     *
+     * @param node  Node of textField
      * @param color border color
      */
     private void setBorderColor(TextField node, String color) {
@@ -106,6 +114,7 @@ public class SignupController {
 
     /**
      * Method For Email Validation
+     *
      * @param emailText text of email field
      * @return matches with email pattern or not
      */

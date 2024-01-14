@@ -1,33 +1,25 @@
 package com.retake.stuaid;
 
-import java.net.URL;
-import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ResourceBundle;
-import java.util.SimpleTimeZone;
-
 import com.retake.stuaid.database.DatabaseHandler;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class AddReferenceController {
+    @FXML
+    private final String color = "#B80000";
     @FXML
     private AnchorPane rootAddRef;
     @FXML
     private TextArea txtRefArea;
-    @FXML
-    private final String color = "#B80000";
 
     @FXML
-    private void addNewRef(ActionEvent event) throws ParseException {
+    private void addNewRef(ActionEvent event) {
         String ReferenceTitle = txtRefArea.getText();
         LocalDate date = LocalDate.now();
         LocalTime time = LocalTime.now();
@@ -48,7 +40,7 @@ public class AddReferenceController {
     }
 
     @FXML
-     private void closeStage(ActionEvent event) {
+    private void closeStage(ActionEvent event) {
         Stage stage = (Stage) rootAddRef.getScene().getWindow();
         stage.close();
     }
